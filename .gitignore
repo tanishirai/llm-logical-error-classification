@@ -1,0 +1,135 @@
+# ============================================
+# Python
+# ============================================
+__pycache__/
+*.py[cod]
+*.pyc
+*.pyo
+.Python
+env/
+venv/
+*.egg-info/
+*.egg
+.pytest_cache/
+
+# ============================================
+# API Keys and Secrets (CRITICAL - NEVER COMMIT!)
+# ============================================
+config/api_keys.json
+.env
+*.key
+secrets/
+
+# ============================================
+# Data Files (Too large for GitHub)
+# ============================================
+# Large dataset files
+data/unified_dataset.json
+data/unified_dataset.xlsx
+data/sample_1000.json
+data/sample_manual_100.json
+
+# Keep these files
+!data/README.md
+!data/dataset_summary.txt
+
+# Final clean datasets folder
+data/final_clean_datasets/
+
+# ============================================
+# Output Files (Generated, can be recreated)
+# ============================================
+# Predictions
+outputs/predictions/*.json
+
+# Manual testing results
+outputs/manual_testing/manual_testing_200_samples.csv
+outputs/manual_testing/manual_testing_200_samples_updated.csv
+outputs/manual_testing/prompts_200_samples.txt
+outputs/manual_testing/*.csv
+outputs/manual_testing/*.txt
+
+# Keep structure indicators
+!outputs/README.md
+!outputs/predictions/.gitkeep
+!outputs/manual_testing/.gitkeep
+
+# ============================================
+# Paper Drafts (Optional - keep or ignore)
+# ============================================
+# Uncomment if you want to keep paper private
+# paper/*.pdf
+# paper/*.docx
+
+# Keep markdown drafts in git
+!paper/*.md
+
+# ============================================
+# IDE and Editor Files
+# ============================================
+# VS Code
+.vscode/
+*.code-workspace
+
+# PyCharm
+.idea/
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# ============================================
+# OS Files
+# ============================================
+# Windows
+Thumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux
+*~
+
+# ============================================
+# Jupyter Notebooks
+# ============================================
+.ipynb_checkpoints/
+*.ipynb
+
+# ============================================
+# Logs and Temporary Files
+# ============================================
+*.log
+*.tmp
+*.temp
+*.cache
+
+# ============================================
+# Compiled and Build Files
+# ============================================
+*.so
+*.dll
+*.exe
+*.out
+*.app
+
+# ============================================
+# Backup Files
+# ============================================
+*_backup.*
+*_BACKUP.*
+*.bak
+*.old
+
+# ============================================
+# Git Internal
+# ============================================
+.git/

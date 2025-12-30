@@ -1,0 +1,91 @@
+{
+  "taxonomy_version": "1.0",
+  "paper_reference": "Logic Error Localization and Correction with Machine Learning (Xu et al., AAAI 2023)",
+  "categories": [
+    {
+      "id": 1,
+      "name": "Loop Condition",
+      "code": "LOOP_COND",
+      "description": "Incorrect loops in the for/while condition",
+      "examples": [
+        "Wrong loop initialization (e.g., i=1 instead of i=0)",
+        "Wrong loop termination condition (e.g., i<n instead of i<=n)",
+        "Wrong loop increment/decrement (e.g., i++ instead of i+=2)",
+        "Infinite loop due to wrong condition"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Condition Branch",
+      "code": "COND_BRANCH",
+      "description": "Incorrect expression in the if condition",
+      "examples": [
+        "Wrong comparison operator (e.g., < instead of <=)",
+        "Inverted boolean logic (True/False swapped)",
+        "Wrong logical operator (AND instead of OR)",
+        "Missing or extra condition in if/else"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Statement Integrity",
+      "code": "STMT_INTEGRITY",
+      "description": "Statement lacks a part of logical structure",
+      "examples": [
+        "Missing statement in algorithm",
+        "Incomplete expression or calculation",
+        "Missing initialization or assignment",
+        "Skipped logic step in solution"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Output/Input Format",
+      "code": "IO_FORMAT",
+      "description": "Incorrect cin/cout statement (or print/input in Python)",
+      "examples": [
+        "Wrong output format or ordering",
+        "Missing newline or separator",
+        "Reading wrong number of inputs",
+        "Printing wrong variable"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Variable Initialization",
+      "code": "VAR_INIT",
+      "description": "Incorrect declaration or initialization of variables",
+      "examples": [
+        "Variable not initialized before use",
+        "Wrong initial value (e.g., sum=1 instead of sum=0)",
+        "Using wrong variable name",
+        "Variable scope issue"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Data Type",
+      "code": "DATA_TYPE",
+      "description": "Incorrect data type",
+      "examples": [
+        "Using int instead of float",
+        "String instead of number",
+        "Array type mismatch",
+        "Type casting error"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Computation",
+      "code": "COMPUTATION",
+      "description": "Incorrect basic math symbols or calculations",
+      "examples": [
+        "Wrong operator (+ instead of -, * instead of /)",
+        "Wrong formula or calculation",
+        "Missing parentheses causing wrong precedence",
+        "Off-by-one in arithmetic"
+      ]
+    }
+  ],
+  "instructions_for_models": "You are analyzing code with logical errors. Based on the buggy code, problem description, and execution feedback (if available), classify the PRIMARY logical error into ONE of the 7 categories above. Return ONLY the category code (e.g., 'LOOP_COND', 'COND_BRANCH', etc.). If multiple errors exist, choose the most significant one."
+}
