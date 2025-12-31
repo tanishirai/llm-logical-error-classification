@@ -1,0 +1,3084 @@
+Sample_#,Unified_ID,Dataset,Language,Problem,Buggy_Code,Qwen_Auto,Llama_Auto,Gemini_Manual,ChatGPT_Manual,Claude_Manual,DeepSeek_Manual,Ground_Truth,Notes
+1,YAK_033938,Yaksh,Python,"Define a function called <code>to_lower</code>
+<br/>The function should take a single list of strings.
+<br/>The function should return the list of strings but all
+in lowercase.
+<br/><b>Do not use ...","def to_lower(list):
+  a =[]
+  for i in list:
+    
+    a.append(i.lower())
+  print(a)",STMT_INTEGRITY,STMT_INTEGRITY,"
+IO_FORMAT",IO_FORMAT,STMT_INTEGRITY,IO_FORMAT,,
+2,PYPAL_006556,PyPal,Python,"Given a positive integer, return its binary representation (output using integer datatype).","def main(x):
+	b = 0
+	p = 1
+	for i in range (x):
+		r = x%2	
+		b = b+r*p
+		x = x//2
+		p = p*10
+	return b",LOOP_COND,LOOP_COND,LOOP_COND,LOOP_COND,LOOP_COND,LOOP_COND,,
+3,YAK_096363,Yaksh,Python,"<p>Write a function called <code>strip_string</code> that takes a string and strips out all characters except: a-z, A-Z, 0-9, underscore and the forward slash. All other characters are to get removed ...","def strip_string(arg):
+  result=[]
+  for char in arg:
+    if char.isalnum() or char in ""_/"":
+      result.append(char)
+    else:
+      result.append(""_"")
+      
+  return """".join(result).replace(""____"",""_"")",COND_BRANCH,STMT_INTEGRITY,COMPUTATION,STMT_INTEGRITY,COMPUTATION,COMPUTATION,,
+4,YAK_086184,Yaksh,Python,"Write a function called <code>evensum(s)</code> that accepts a non-empty integer list as an argument.
+<br><br>
+The function should return the sum of all the even numbers in the list.
+<br><br>
+Example
+...","def evensum(s):
+  sum=0
+  for a in s:
+    if(a %2 ==0):
+      sum=sum+a
+    return sum",COND_BRANCH,STMT_INTEGRITY,STMT_INTEGRITY,STMT_INTEGRITY,STMT_INTEGRITY,STMT_INTEGRITY,,
+5,YAK_077344,Yaksh,Python,<p>Write a function called <code>remove_underscores(s)</code> that accepts a string as an argument. <br /><br />The function should remove all the UNWANTED underscores! So the underscores at the start...,"def remove_underscores(s):
+  ss=s.strip(""_"")
+  return ss",COND_BRANCH,STMT_INTEGRITY,STMT_INTEGRITY,STMT_INTEGRITY,STMT_INTEGRITY,STMT_INTEGRITY,,
+6,YAK_044300,Yaksh,Python,"Write a <b>Point</b> class with two attributes <b>x, y</b> withh useful <b>__str__, __repr__</b> methods as follows.<br/>
+<b>For example:</b>
+<pre>
+<b>Input:</b>
+p = Point(1, 2)
+str(p)
+repr(p)
+...","class Point:
+  def __init__(self, x=0, y=0):
+    self.x=x
+    self.y=y
+  def __str__(self):
+    return '(%s, %s)' % (self.x, self.y)
+  def __repr__(self):
+    return 'point'+ self.__str__()
+p = Point(1, 2)
+str(p)
+repr(p)",STMT_INTEGRITY,STMT_INTEGRITY,COMPUTATION,IO_FORMAT,COMPUTATION,COMPUTATION,,
+7,YAK_029788,Yaksh,Python,"Define a function called <code>even_square</code>
+<br/>
+The function should take a single argument.
+<br/>
+The function should return if the number is even
+and the square of the number
+<br/><b>Do...","def even_square(x):
+  if x%2==0:
+    return 'True', x**x
+  else:
+    return 'False', x**x",COND_BRANCH,STMT_INTEGRITY,COMPUTATION,COMPUTATION,COMPUTATION,DATA_TYPE,,
+8,SPOC_008776,SPOC,C++,"t is an integer
+a is a set of strings
+read t
+for integer i = 1 to t inclusive
+s is a string
+read s
+sort s from begin to end
+erase unique(s.begin(), s.end()), s.end() in s
+insert s in a
+print size of a...","int main() {
+    int t;
+    set<string> a;
+    cin >> t;
+    for (int i = 1; i <= t; i++) {
+        string s;
+        cin >> s;
+        sort(s.begin(), s.end());
+        s.erase(unique(s.begin(), s.end()), s.end());
+        a.insert(s);
+    }
+    cout << a.size() << endl;
+    return 0;
+}",VAR_INIT,STMT_INTEGRITY,STMT_INTEGRITY,STMT_INTEGRITY,LOOP_COND,COND_BRANCH,,
+9,YAK_023200,Yaksh,Python,"Write a function called <code>count_unique(text)</code> to find the
+number of unique words in a given string. Ignore case and assume no
+punctuation is in the words.  For example:
+<br/>
+<br/>
+<pre...","def count_unique(text):
+    data=[]
+    data1=[]
+    cnt=0
+    for t in text.lower().split():
+        data.append(t)
+    data1.append(set(data))
+    data1=list(data1)
+    for n in data1:
+        cnt += 1
+    return cnt",VAR_INIT,STMT_INTEGRITY,STMT_INTEGRITY,STMT_INTEGRITY,COMPUTATION,COMPUTATION,,
+10,CODEFORCES_033390,Codeforces,C++,N/A,"#include <bits/stdc++.h>
+#include <string>
+using namespace std;
+
+long long ans;
+int mi, sec;
+int reed() {
+    char c, res;
+    cin >> c;
+    res = (c - '0') * 10;
+    cin >> c;
+    res += c - '0';
+    return res;
+}
+void time() {
+    char crap;
+    mi += reed();
+    cin >> crap;
+    sec += reed();
+}
+int otp(int x) {
+    if (x < 10) cout << '0';
+    return x;
+}
+int main() {
+    time();
+    time();
+    sec /= 2;
+    if (mi & 1) sec += 30;
+    mi /= 2;
+    if (sec >= 60) mi++, sec %= 60;
+    cout << otp(mi) << ':' << otp(sec);
+}",ERROR,STMT_INTEGRITY,IO_FORMAT,VAR_INIT,IO_FORMAT,VAR_INIT,,
+11,PYPAL_008331,PyPal,Python,"Given an integer, return True if it is even, else return False.","def main():
+	x=10
+	if x%2==0:
+		print(Even)
+	else:
+		print(False)
+	return 0",IO_FORMAT,STMT_INTEGRITY,IO_FORMAT,IO_FORMAT,IO_FORMAT,VAR_INIT,,
+12,PYPAL_007811,PyPal,Python,"Given a list of distinct numbers (may contain zero), return another list which contains the ratio of all pairs of numbers in the given list. (round off ratio to 4 decimal places, and division by zero ...","def main(a):
+	r=1
+	li=[]
+	for i in range(len(a)):
+		for j in range(i,len(a)):
+			if i==j:
+				continue
+			elif a[i]!=0 and a[j]!=0:
+				r=a[i]/a[j]
+				li.append(round(r,4))
+			else:
+				li.append('nd')
+	return li",COND_BRANCH,STMT_INTEGRITY,LOOP_COND,LOOP_COND,COND_BRANCH,LOOP_COND,,
+13,YAK_025871,Yaksh,Python,"Write a function called <code>safe_run(f, x)</code>
+<br/> f is a function and x is a value
+<br/> f can raise either ValueError or TypeError
+<br/> Your function should return <b>OK</b> if no excepti...","def safe_run(f,x):
+  try:
+    f(x)
+  except ValueError:
+    return 'Valuerror'
+  except TypeError:
+    return 'TypeError'
+  else:
+    return 'OK'",COND_BRANCH,STMT_INTEGRITY,COMPUTATION,IO_FORMAT,COMPUTATION,COMPUTATION,,
+14,YAK_075521,Yaksh,Python,"Define a function called <code>apply(f, data)</code>
+<br/>Where f is a function taking a single value.
+<br/>Where data is a list.
+<br/>
+It should return a list where the function is applied
+to ea...","def f(x):
+  return 2*x
+def apply(f,data):
+  for i in data:
+    return f",STMT_INTEGRITY,STMT_INTEGRITY,STMT_INTEGRITY,STMT_INTEGRITY,STMT_INTEGRITY,STMT_INTEGRITY,,
+15,YAK_081081,Yaksh,Python,<p>Write a function called <code>hasprime(s)</code> that accepts a non-empty integer list as an argument. <br /><br />The function should return a boolean True if the list has a number that is a prime...,"def hasprime(s):
+  prime=False
+  for a in s:
+    for j in range(2,a):
+      if a%j==0:
+        break;
+      else:
+        prime=True
+  return prime",COND_BRANCH,STMT_INTEGRITY,STMT_INTEGRITY,COND_BRANCH,STMT_INTEGRITY,STMT_INTEGRITY,,
+16,DEEPFIX_005261,DeepFix,C,N/A,"#include <stdio.h>
+int main(){
+    int n,i;
+    scanf(""%d"",&n);
+    int a[n];
+    for(i=0;i<n;i++) {
+        scanf(""%d"",&a[i]) }
+    for(i=0;i<n;i++) {
+        if(a[i+1>a[i] && a[i+2]<a[i+1])
+        printf(""%d"",a[i+1]); }
+    return 0; }",STMT_INTEGRITY,STMT_INTEGRITY,LOOP_COND,COND_BRANCH,COND_BRANCH,STMT_INTEGRITY,,
+17,PYPAL_006956,PyPal,Python,"Given a quadratic equation with coefficients a, b and c, return the two solutions (may be real or complex). You should not take the square root of a negative number in your code. Input should be in th...","def main(a, b, c):
+    if a == 0:  # If 'a' is zero, it’s not a quadratic equation
+        return [(float(-b / (2 * a))), 0.0], [(float(-b / (2 * a))), 0.0]  # handle linear case or error for this situation
+    discriminant = b * b - 4 * a * c
+    if discriminant >= 0:
+        real_part = -b / (2 * a)
+        imaginary_part = (discriminant)**0.5 / (2 * a)
+        return [(real_part + imaginary_part, 0.0), (real_part - imaginary_part, 0.0)]
+    else:
+        real_part = -b / (2 * a)
+        imaginary_part = (-discriminant)**0.5 / (2 * a)
+        return [(real_part, imaginary_part), (real_part, -imaginary_part)]",ERROR,ERROR,STMT_INTEGRITY,COMPUTATION,STMT_INTEGRITY,COND_BRANCH,,
+18,SPOC_012939,SPOC,C++,"x1, y1, x2, y2 = int64_t
+read x1 then y1 then x2 then y2
+print max of absolute of x1 - x2 and absolute of y1 - y2","int main() {
+    int64_t x1, y1, x2, y2;
+    cin >> x1 >> y1 >> x2 >> y2;
+    cout << max(abs(x1 - x2), abs(y1 - y2)) << endl;
+    return 0;
+}",STMT_INTEGRITY,STMT_INTEGRITY,COMPUTATION,DATA_TYPE,COMPUTATION,COMPUTATION,,
+19,YAK_067467,Yaksh,Python,"Write a function <code>odd_even_sum(start, stop)</code> that accepts two integer arguments. <br><br>
+The function must return a list containing two values. The first value of the list will be the sum ...","def odd_even_sum(start,stop):
+  o=0
+  e=0
+  for i in range(start,stop+1):
+    if i%2==0:
+      e+=1
+    else:
+      o+=1
+  return o,e",COND_BRANCH,STMT_INTEGRITY,COMPUTATION,COMPUTATION,COMPUTATION,COMPUTATION,,
+20,SPOC_008665,SPOC,C++,"let maxN and mod be constant integers with maxN = 1e3 + 13 and mod = 1e9 + 7
+let ans, a[maxN], c[maxN] [maxN], sum, and k be long long values with ans = 1
+read k
+for i = 0 to maxN exclusive
+for j = 0 ...","const int maxN = 1e3 + 13, mod = 1e9 + 7;
+long long ans = 1, a[maxN], c[maxN][maxN], sum, k;
+int main() {
+    cin >> k;
+    for (int i = 0; i < maxN; i++)
+        for (int j = 0; j < maxN; j++) {
+            if (j == 0 || j == i)
+                c[i][j] = 1;
+            else
+                c[i][j] = (c[i - 1][j] + c[i - 1][j - 1]) % mod;
+        }
+    for (int i = 0; i < k; i++) {
+        cin >> a[i];
+        ans = (ans * c[sum + a[i] - 1][a[i] - 1]) % mod;
+        sum += a[i];
+    }
+    cout << ans << endl;
+}",LOOP_COND,STMT_INTEGRITY,LOOP_COND,VAR_INIT,LOOP_COND,LOOP_COND,,
+21,CODEFORCES_032760,Codeforces,C++,N/A,"#include <bits/stdc++.h>
+#include <string>
+using namespace std;
+
+int main() {
+    long long int p1, l1, p2, l2, L1, L2, L = 0;
+    cin >> p1 >> l1 >> p2 >> l2;
+    L1 = p1 + 2 * l1 + 2;
+    L2 = p2 + 2 * l2 + 2;
+    if (p1 != p2) { L = p1 - p2; }
+    L = L + L1 + L2;
+    cout << L;
+}",STMT_INTEGRITY,STMT_INTEGRITY,STMT_INTEGRITY,STMT_INTEGRITY,COMPUTATION,IO_FORMAT,,
+22,YAK_076361,Yaksh,Python,"Define a function called <code>largest</code> which takes a
+single argument.
+<br/>
+The argument passed will be an opened file object.
+<br/>
+Read the data in the file.
+Assume that the data is sep...","def largest(X):
+  data = []
+  for line in f:
+    for feild in line.split():
+      data.append(float(field))
+  return data",IO_FORMAT,STMT_INTEGRITY,STMT_INTEGRITY,STMT_INTEGRITY,COMPUTATION,IO_FORMAT,,
+23,CODEFORCES_040543,Codeforces,C++,N/A,"#include <bits/stdc++.h>
+#include <string>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    long tong = 0;
+    long lonnhat = 0;
+    int a, b;
+    for (int i = 1; i <= n; i++) {
+        cin >> a >> b;
+        tong = tong - a + b;
+        if (tong > lonnhat) { lonnhat = tong; }
+    }
+    cout << lonnhat;
+}",STMT_INTEGRITY,STMT_INTEGRITY,DATA_TYPE,DATA_TYPE,DATA_TYPE,COMPUTATION,,
+24,YAK_097420,Yaksh,Python,<p>1. Create a <code>LinearEquation</code> class in two variables which takes three components and supports the following operations: <br /><br />- Instantiate a linear equation with components as pos...,"class LinearEquation:
+    def __init__(self, a=1,b=1,c=0):
+        self.a = float(a)
+        self.b = float(b)
+        self.c = float(c)
+
+    def __repr__(self):
+        return f""{self.a}x + {self.b}y = {self.c}""
+
+    def __str__(self):
+        return f""{self.a}x + {self.b}y = {self.c}""
+
+    def __add__(self, other):
+        new_a = self.a + other.a
+        new_b = self.b + other.b
+        new_c = self.c + other.c
+        return LinearEquation(new_a, new_b, new_c)
+
+    def isparallel(self, other):
+        return self.a / other.a == self.b / other.b
+
+    def intersects(self, other):
+        determinant = self.a * other.b - self.b * other.a
+        return determinant != 0
+
+    def overlaps(self, other):
+        if self.a == 0 and other.a == 0:
+            return se...",STMT_INTEGRITY,ERROR,COMPUTATION,COMPUTATION,COMPUTATION,COMPUTATION,,
+25,PYPAL_001703,PyPal,Python,"Given a positive integer, return its factorial.","def main():
+	n=int(input())
+	result=int(1)
+	for i in range(1,n+1):
+		result*=i
+	print(result)
+	return 0",IO_FORMAT,STMT_INTEGRITY,STMT_INTEGRITY,IO_FORMAT,VAR_INIT,VAR_INIT,,
+26,YAK_052779,Yaksh,Python,"Define a function called <code>prompt</code>
+<br/>
+The function should take a single string argument
+<br/>
+The function should return a string with 'Hello'
+<br/><b>Do not use input</b>
+<br/><b>D...","def prompt(a):
+  if a=='sam':
+    return('Hello'+a)",STMT_INTEGRITY,STMT_INTEGRITY,COND_BRANCH,COND_BRANCH,COND_BRANCH,COND_BRANCH,,
+27,CODEFORCES_033571,Codeforces,C++,N/A,"#include <bits/stdc++.h>
+#include <string>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    pair<int, int> p[n];
+    for (int i = 0; i < n; i++) cin >> p[i].first >> p[i].second;
+    int t;
+    cin >> t;
+    for (int i = 0; i < n; i++)
+        if (t >= p[i].first && t <= p[i].second) {
+            cout << n - i;
+            break;
+        }
+}",STMT_INTEGRITY,STMT_INTEGRITY,LOOP_COND,COMPUTATION,COMPUTATION,LOOP_COND,,
+28,CODEFORCES_011980,Codeforces,C++,N/A,"#include <bits/stdc++.h>
+#include <string>
+using namespace std;
+
+int main() {
+    int x;
+    cin >> x;
+    x -= 10;
+    if (x == 10)
+        cout << 15 << endl;
+    else if (x >= 1 && x <= 11)
+        cout << 4 << endl;
+    else
+        cout << 0 << endl;
+    return 0;
+}",STMT_INTEGRITY,STMT_INTEGRITY,COND_BRANCH,COND_BRANCH,COND_BRANCH,COMPUTATION,,
+29,YAK_097306,Yaksh,Python,<p>Write a function called <code>remove_spaces(s)</code> that accepts a string as an argument. <br /><br />The function should remove all the UNWANTED SPACES! So the spaces at the start and end are co...,"def remove_spaces(s) :
+  length=len(s)
+  if s[0]=="" "" :
+    s.replace("" "", """")
+  if s[length-1]=="" "" :
+    s.replace("" "", """")
+  for char in range(length) :
+    if s[char]==""  "" :
+    	s.replace(""  "", "" "") 
+  return s",STMT_INTEGRITY,STMT_INTEGRITY,STMT_INTEGRITY,STMT_INTEGRITY,STMT_INTEGRITY,COMPUTATION,,
+30,YAK_051297,Yaksh,Python,Write a function <code>except_last_two</code> which takes a <code>list of integers 'L'</code>as an argument and returns <code>everything except the last two elements of the list L.</code>.,"def except_last_two(L):
+  mtlist=[]
+  list(L)",STMT_INTEGRITY,STMT_INTEGRITY,STMT_INTEGRITY,STMT_INTEGRITY,STMT_INTEGRITY,STMT_INTEGRITY,,
+31,YAK_073666,Yaksh,Python,"Define a function called <code>even_square</code>
+<br/>
+The function should take a single argument.
+<br/>
+The function should return if the number is even
+and the square of the number
+<br/><b>Do...","def even_square(a):
+  if a%2==0:
+    return a**2 
+even_square(2)",STMT_INTEGRITY,STMT_INTEGRITY,STMT_INTEGRITY,STMT_INTEGRITY,STMT_INTEGRITY,STMT_INTEGRITY,,
+32,CODEFORCES_011022,Codeforces,C++,N/A,"#include <bits/stdc++.h>
+#include <string>
+using namespace std;
+
+int main() {
+    int n, *a, max = 0, sum = 0;
+    cin >> n;
+    a = new int[n];
+    for (int i = 0; i < n; i++) {
+        cin >> a[i];
+        sum += a[i];
+        if (a[i] > max) max = a[i];
+    }
+    while (true) {
+        if (max * n - sum > sum) {
+            cout << max;
+            break;
+        }
+        max++;
+    }
+}",STMT_INTEGRITY,STMT_INTEGRITY,DATA_TYPE,COMPUTATION,COND_BRANCH,COMPUTATION,,
+33,YAK_029611,Yaksh,Python,"Write a function called <code>count_unique(text)</code> to find the
+number of unique words in a given string. Ignore case and assume no
+punctuation is in the words.  For example:
+<br/>
+<br/>
+<pre...","def count_unique(text):
+  text=text.lower()
+  a=list(text)
+  c=set(a)
+  b=list(c)
+  d=len(b)
+  print(d)",VAR_INIT,STMT_INTEGRITY,STMT_INTEGRITY,COMPUTATION,STMT_INTEGRITY,COMPUTATION,,
+34,YAK_025447,Yaksh,Python,"Write a function <code>odd_even_sum(start, stop)</code> that accepts two integer arguments. <br><br>
+The function must return a list containing two values. The first value of the list will be the sum ...","def odd_even_sum(start,stop):
+  odd=0
+  even=0
+  for i in range(start,stop+1):
+      if i%2==0:
+        even+=i
+      else:
+        odd+=i
+  print(odd,even)",COND_BRANCH,STMT_INTEGRITY,STMT_INTEGRITY,IO_FORMAT,STMT_INTEGRITY,IO_FORMAT,,
+35,CODEFORCES_022381,Codeforces,C++,N/A,"#include <bits/stdc++.h>
+#include <string>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    long long arr[n][2];
+    for (int i = 0; i < n; i++) {
+        long long b, t;
+        cin >> b >> t;
+        long long x = b;
+        long long y = 2 * b;
+        arr[i][0] = x;
+        arr[i][1] = y;
+    }
+    for (int i = 0; i < n; i++) { cout << arr[i][0] << "" "" << arr[i][1] << endl; }
+}",STMT_INTEGRITY,STMT_INTEGRITY,STMT_INTEGRITY,COMPUTATION,COMPUTATION,COND_BRANCH,,
+36,YAK_027226,Yaksh,Python,"Write a function <code>odd_even_sum(start, stop)</code> that accepts two integer arguments. <br><br>
+The function must return a list containing two values. The first value of the list will be the sum...","def odd_even_sum(start, stop):
+  odd=0
+  even=0
+  for i in (start,stop):
+    if(i%2==0):
+      even=even+i
+    else:
+      odd=odd+i
+  print((odd,even))",COND_BRANCH,STMT_INTEGRITY,LOOP_COND,LOOP_COND,LOOP_COND,LOOP_COND,,
+37,CODEFORCES_016890,Codeforces,C++,N/A,"#include <bits/stdc++.h>
+#include <string>
+using namespace std;
+
+int main() {
+    double n, k;
+    cin >> n >> k;
+    long long m;
+    m = ceil(n * 2 / k) + ceil(n * 5 / k) + ceil(n * 8 / k);
+    cout << m << endl;
+}",STMT_INTEGRITY,ERROR,DATA_TYPE,DATA_TYPE,DATA_TYPE,COMPUTATION,,
+38,CODEFORCES_012951,Codeforces,C++,N/A,"#include <bits/stdc++.h>
+#include <string>
+using namespace std;
+
+int main() {
+    int x, y, z, t1, t2, t3;
+    cin >> x >> y >> z >> t1 >> t2 >> t3;
+    int sctotal = (abs(x - y)) * t1;
+    int liftotal = (abs(x - z)) * t2 + (abs(x - y)) * t2 + 3 * t3;
+    if (sctotal < liftotal)
+        cout << ""NO"";
+    else
+        cout << ""YES"";
+}",ERROR,ERROR,COMPUTATION,COND_BRANCH,COND_BRANCH,COMPUTATION,,
+39,YAK_092893,Yaksh,Python,"<p>Write a function <code>word_frequency(s,n)</code> to find the most frequently occurring words in a string, where <code>s</code> is a string and <code>n</code> is a positive integer. The function mu...","def word_frequency(s,n):
+  counts=dict()
+  words=s.split()
+  for word in words:
+    if word in counts:
+      counts[word]+=1
+    else:
+      counts[word]=1
+  return counts",ERROR,ERROR,STMT_INTEGRITY,STMT_INTEGRITY,STMT_INTEGRITY,STMT_INTEGRITY,,
+40,PYPAL_011390,PyPal,Python,"Given a list of integers, return their Least Common Multiple (LCM).","def main(numbers):
+    #if not numbers:
+     #   return None  # Return None if the list is empty
+    
+    result = numbers[0]
+    for num in numbers[1:]:
+        result = lcm(result, num)
+    return result",ERROR,ERROR,STMT_INTEGRITY,STMT_INTEGRITY,STMT_INTEGRITY,VAR_INIT,,
+41,CODEFORCES_043221,Codeforces,C++,N/A,"#include <bits/stdc++.h>
+#include <string>
+using namespace std;
+
+int n, m;
+int next_elev(int s, int t) {
+    int mod = t % (2 * (m - 1)), full = t - mod;
+    int board;
+    if (mod <= s) {
+        board = full + s;
+    } else {
+        if (mod <= 2 * (m - 1) - s) {
+            board = full + 2 * (m - 1) - s;
+        } else {
+            board = full + 2 * (m - 1) + s;
+        }
+    }
+    return board;
+}
+int main() {
+    cin >> n >> m;
+    for (int i = 0; i < n; ++i) {
+        int s, f, t;
+        cin >> s >> f >> t;
+        --s;
+        --f;
+        int t1 = next_elev(s, t);
+        int t2 = next_elev(f, t1);
+        if (s == f) { t2 = t; }
+        cout << t2 << '\n';
+    }
+}",ERROR,ERROR,LOOP_COND,COND_BRANCH,COND_BRANCH,COMPUTATION,,
+42,SPOC_006380,SPOC,C++,"n = int
+read n
+x = int array of size n
+for i = 1 to n inclusive read x[i]
+if n is 1 and x[n] is not 15 and x[n] is not 0 print ""-1""
+if x[n] is 15 print ""DOWN""
+if x[n] is 0
+print ""UP""
+else
+if x[n] - x[...","int main() {
+    int n;
+    cin >> n;
+    int x[n];
+    for (int i = 1; i <= n; ++i) { cin >> x[i]; }
+    if (n == 1 && x[n] != 15 && x[n] != 0) { cout << ""-1"" << endl; }
+    if (x[n] == 15) cout << ""DOWN"" << endl;
+    if (x[n] == 0)
+        cout << ""UP"" << endl;
+    else {
+        if (x[n] - x[n - 1] == 1 && x[n] != 15) cout << ""UP"" << endl;
+        if (x[n] - x[n - 1] == -1) cout << ""DOWN"" << endl;
+    }
+    return 0;
+}",ERROR,ERROR,LOOP_COND,LOOP_COND,COND_BRANCH,COND_BRANCH,,
+43,YAK_038924,Yaksh,Python,"Create an <code>ArithmeticProgression</code> class which takes two
+components a and d,  where a is the first term of the progression and d is the common difference:
+<br><br>
+The following operation...","class ArithmeticProgression(object):
+  def __init__(self, a=1, d=1):
+    self.a = a
+    self.d = d
+   
+  def get(self, n):
+    return self.a+((n-1)*self.d)
+
+  def sum(self, n):
+    return (n//2)*((2*self.a)+(n-1)*self.d)",STMT_INTEGRITY,STMT_INTEGRITY,STMT_INTEGRITY,COMPUTATION,COMPUTATION,COMPUTATION,,
+44,CODEFORCES_022016,Codeforces,C++,N/A,"#include <bits/stdc++.h>
+#include <string>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    string s = """";
+    int k = 0;
+    string s1;
+    cin >> s1;
+    for (int i = 0; i < s1.size(); i++) {
+        char c = s1[i];
+        s += c;
+        i += k;
+        k++;
+    }
+    cout << s << endl;
+    return 0;
+}",STMT_INTEGRITY,STMT_INTEGRITY,STMT_INTEGRITY,LOOP_COND,LOOP_COND,COMPUTATION,,
+45,YAK_020129,Yaksh,Python,"Write a function <code>odd_even_sum(start, stop)</code> that accepts two integer arguments. <br><br>
+The function must return a list containing two values. The first value of the list will be the sum ...","def odd_even_sum(a,b):
+  i=1
+  sum=0
+  oddsum=0
+  while i<b:
+    if i%2==0:
+      sum=sum+i
+    else:
+      oddsum=oddsum+i
+    i=i+1
+    
+  print(sum,oddsum)",COND_BRANCH,STMT_INTEGRITY,LOOP_COND,LOOP_COND,LOOP_COND,LOOP_COND,,
+46,SPOC_010526,SPOC,C++,"let k, a , b, c be integers
+get k, a, b, c
+iterate i from 1 to 1000 with increment i
+let n be integer and assign k*i to n
+set n to minimum of n and b+i
+if c*n greater than or equal to a then
+display i","int main() {
+    int k, a, b, c;
+    cin >> k >> a >> b >> c;
+    for (int i = 1; i <= 1000; i++) {
+        int n = k * i;
+        n = min(n, b + i);
+        if (c * n >= a) {
+            cout << i << endl;
+            return 0;
+        }
+    }
+    return 0;
+}",LOOP_COND,STMT_INTEGRITY,STMT_INTEGRITY,STMT_INTEGRITY,COMPUTATION,COMPUTATION,,
+47,YAK_102861,Yaksh,Python,"Write a function <code>odd_even_sum(start, stop)</code> that accepts two integer arguments. <br><br>
+The function must return a list containing two values. The first value of the list will be the sum ...","def odd_even_sum(start, stop):
+    if not isinstance(start, int) or not isinstance(stop, int):
+        raise ValueError(""Both start and stop must be integers."")
+    
+    if start > stop:
+        start, stop = stop, start  # Ensure correct order
+
+    odd_sum = sum(num for num in range(start, stop + 1) if num % 2 != 0)
+    even_sum = sum(num for num in range(start, stop + 1) if num % 2 == 0)
+
+    return [odd_sum, even_sum]
+
+# Example usage
+print(odd_even_sum(2, 7))  # Output: [15, 12]",COND_BRANCH,STMT_INTEGRITY,DATA_TYPE,IO_FORMAT,DATA_TYPE,DATA_TYPE,,
+48,CODEFORCES_017586,Codeforces,C++,N/A,"#include <bits/stdc++.h>
+#include <string>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    if (n == 2) {
+        cout << 2;
+    } else {
+        cout << 1;
+    }
+}",STMT_INTEGRITY,STMT_INTEGRITY,COND_BRANCH,COND_BRANCH,COND_BRANCH,COND_BRANCH,,
+49,YAK_065305,Yaksh,Python,"Write a function <code>get_digits_cubes(arg)</code> which will take one positive integer argument.
+<br>
+Return the sum of the cubes of the digits
+<br><br>
+For Example:<br><code>get_digits_cubes(12...","def get_digits_cubes(n):
+  n -= 1
+  total = 0
+  while n > 0:
+    total += n * n * n
+    n -= 1
+  return total",STMT_INTEGRITY,STMT_INTEGRITY,STMT_INTEGRITY,COMPUTATION,COMPUTATION,LOOP_COND,,
+50,YAK_016538,Yaksh,Python,"Define a function called <code>apply(f, data)</code>
+<br/>Where f is a function taking a single value.
+<br/>Where data is a list.
+<br/>
+It should return a list where the function is applied
+to each el...","def apply(f,data):
+  def f(x) :
+    return 2*x
+  for i in data:
+    f(i)",STMT_INTEGRITY,STMT_INTEGRITY,STMT_INTEGRITY,STMT_INTEGRITY,STMT_INTEGRITY,STMT_INTEGRITY,,
+51,PYPAL_012012,PyPal,Python,"Given a string as input, return the string with the first letter of each word capitalised.","def main(s):
+	c = s.split()
+	d=[word.capitalize() for word in c ]
+	return"" "".join(d)",STMT_INTEGRITY,STMT_INTEGRITY,,,,,,
+52,YAK_079021,Yaksh,Python,<p>Write a function called <code>remove_underscores(s)</code> that accepts a string as an argument. <br /><br />The function should remove all the UNWANTED underscores! So the underscores at the start...,"def remove_underscores(s):
+  t=s.replace(""_"","""")
+  print(t)
+  t.strip()
+  return(t)
+print(remove_underscores(""__Hello_ Hi!__""))",COND_BRANCH,STMT_INTEGRITY,,,,,,
+53,YAK_101590,Yaksh,Python,"Write a function <code>fibodiv(n)</code> that accepts an integer <b>n</b> as argument.
+<br><br>
+The function should return boolean <code>True</code> if the <b>n<sup>th</sup></b> value of the fibonacci...","def fibodiv(n):
+  a,b = 1, 1
+  if n == 1 or n ==2:
+    return False
+  for _ in range(3, n+1):
+    a, b = b, a+b
+    return b%4 == 0",ERROR,STMT_INTEGRITY,,,,,,
+54,YAK_020459,Yaksh,Python,"Define a function called <code>even_square</code>
+<br/>
+The function should take a single argument.
+<br/>
+The function should return if the number is even
+and the square of the number
+<br/><b>Do...","def even_square(a):
+  if a%2==0:
+    return a*a
+even_square(2)",COND_BRANCH,STMT_INTEGRITY,,,,,,
+55,YAK_081131,Yaksh,Python,"Write a function called <code>ispresent(s)</code> that accepts a non-empty integer list as an argument.
+<br><br>
+The function should return a boolean True if number 5 is present in the list else retur...","def ispresent(s):
+  if 5 in s:
+    return True",COND_BRANCH,STMT_INTEGRITY,,,,,,
+56,YAK_029108,Yaksh,Python,"Define a function called <code>largest</code> which takes a
+single argument.
+<br/>
+The argument passed will be an opened file object.
+<br/>
+Read the data in the file.
+Assume that the data is sep...","def largest(x):
+  data = []
+  for i in x:
+    for j in i.split():
+      data.append(float(j))
+  return data",IO_FORMAT,STMT_INTEGRITY,,,,,,
+57,CODEFORCES_022433,Codeforces,C++,N/A,"#include <bits/stdc++.h>
+#include <string>
+using namespace std;
+
+int main() {
+    string str1, str2;
+    int flag = 0;
+    cin >> str1;
+    for (int i = 1; i <= 5; i++) {
+        cin >> str2;
+        if (str1[0] == str2[0] || str1[1] == str2[1]) {
+            flag = 0;
+            break;
+            cout << ""YES"";
+        } else {
+            flag = flag + 1;
+        }
+    }
+    if (flag == 5) {
+        cout << ""NO"" << endl;
+    } else {
+        cout << ""YES"" << endl;
+    }
+    return 0;
+}",STMT_INTEGRITY,STMT_INTEGRITY,,,,,,
+58,YAK_097335,Yaksh,Python,<p>1. Create a <code>LinearEquation</code> class in two variables which takes three components and supports the following operations: <br /><br />- Instantiate a linear equation with components as pos...,"class LinearEquation:
+    def __init__(self, a=1, b=1, c=0):
+        self.a = float(a)
+        self.b = float(b)
+        self.c = float(c)
+
+    def __str__(self):
+        return f""{self.a:.1f}x + {self.b:.1f}y = {self.c:.1f}""
+
+    def __repr__(self):
+        return self.__str__()
+
+    def __add__(self, other):
+        return LinearEquation(self.a + other.a, self.b + other.b, self.c + other.c)
+
+    def isparallel(self, other):
+        if self.a / other.a == self.b / other.b and self.a / other.a != self.c / other.c:
+            return True
+        else:
+            return False
+
+    def intersects(self, other):
+        if self.a / other.a != self.b / other.b:
+            return True
+        else:
+            return False
+
+    def overlaps(self, other):
+        if ...",IO_FORMAT,STMT_INTEGRITY,,,,,,
+59,CODEFORCES_041644,Codeforces,C++,N/A,"#include <bits/stdc++.h>
+#include <string>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    int a[2 * n];
+    int x = 0;
+    for (int i = 0; i < 2 * n; i++) {
+        cin >> a[i];
+        if (i < n)
+            x += a[i];
+        else
+            x -= a[i];
+    }
+    if (x != 0) {
+        for (int i = 0; i < 2 * n; i++) cout << a[i] << "" "";
+    } else {
+        int i;
+        for (i = 0; i < n; i++) {
+            for (int j = n; j < 2 * n; j++) {
+                if (a[i] != a[j]) {
+                    swap(a[i], a[j]);
+                    i = n + 1;
+                    break;
+                }
+            }
+        }
+        if (i == n)
+            cout << -1;
+        else {
+            for (i = 0; i < 2 * n; i++) cout << a[i] << "" "";
+        }
+    }
+    return 0;
+}",STMT_INTEGRITY,STMT_INTEGRITY,,,,,,
+60,CODEFORCES_018424,Codeforces,C++,N/A,"#include <bits/stdc++.h>
+#include <string>
+using namespace std;
+
+inline long long read() {
+    long long x = 0, f = 1;
+    char ch = getchar();
+    while (!isdigit(ch)) {
+        if (ch == '-') f = -1;
+        ch = getchar();
+    }
+    while (isdigit(ch)) {
+        x = (x << 1) + (x << 3) + ch - '0';
+        ch = getchar();
+    }
+    return x * f;
+}
+long long n, m, a[1010];
+int main() {
+    n = read();
+    for (int i = 1; i <= n; i++) { a[i] = read(); }
+    long long ans = 101239421084123094;
+    for (int x = 1; x <= n; x++) {
+        long long ret = 0;
+        for (int i = 2; i <= n; i++) { ret += a[i] * (abs(x - i) + abs(i - 1) + abs(1 - x)); }
+        for (int i = 2; i <= n; i++) { ret += a[i] * (abs(x - 1) + abs(1 - i) + abs(i - x)); }
+        ans = min(ret, ans);
+    }
+    cout << ans...",ERROR,ERROR,,,,,,
+61,YAK_053887,Yaksh,Python,"Write a function <code>odd_even_sum(start, stop)</code> that accepts two integer arguments. <br><br>
+The function must return a list containing two values. The first value of the list will be the sum ...","def odd_even_sum(start,stop):
+  sumeven,sumodd=0,0
+  l = []
+  for i in range(start,stop+1):
+    if i%2==0:
+      sumeven+=i
+    else:
+      sumodd+=i
+      l = [sumodd,sumeven]
+      l = tuple(l)
+      return l",COND_BRANCH,STMT_INTEGRITY,,,,,,
+62,CODEFORCES_019826,Codeforces,C++,N/A,"#include <bits/stdc++.h>
+#include <string>
+using namespace std;
+
+main() {
+    long long n;
+    cin >> n;
+    long long arr[n];
+    long long si[n];
+    for (long long i = 0; i < n; i++) {
+        long long s;
+        cin >> s;
+        si[i] = s;
+        long long mx = 0;
+        for (long long j = 0; j < s; j++) {
+            long long p;
+            cin >> p;
+            mx = max(p, mx);
+        }
+        arr[i] = mx;
+    }
+    long long mx = 0;
+    for (long long i = 0; i < n; i++) { mx = max(mx, arr[i]); }
+    long long sum = 0;
+    for (long long i = 0; i < n; i++) {
+        long long diff = mx - arr[i];
+        long long c = diff * si[i];
+        sum += c;
+    }
+    cout << sum << endl;
+}",STMT_INTEGRITY,STMT_INTEGRITY,,,,,,
+63,CODEFORCES_015918,Codeforces,C++,N/A,"#include <bits/stdc++.h>
+#include <string>
+using namespace std;
+
+int main() {
+    int i, j, l, m;
+    int t;
+    cin >> t;
+    while (t--) {
+        cin >> i >> j >> l >> m;
+        cout << i / j - m / j + (l - 1) / j << endl;
+    }
+}",STMT_INTEGRITY,STMT_INTEGRITY,,,,,,
+64,YAK_071456,Yaksh,Python,"Write a function <code>odd_even_sum(start, stop)</code> that accepts two integer arguments. <br><br>
+The function must return a list containing two values. The first value of the list will be the sum ...","def odd_even_sum(start,stop):
+	result = []
+	sum_odd,sum_even = 0 , 0
+	for i in range(start,stop+1):
+		if i % 2 != 0:
+			sum_odd += i
+		else:
+			sum_even += i
+	result.append(sum_odd)
+	result.append(sum_even)
+	print((*result))",COND_BRANCH,STMT_INTEGRITY,,,,,,
+65,YAK_093692,Yaksh,Python,"<p>Write a function called <code>strip_string</code> that takes a string and strips out all characters except: a-z, A-Z, 0-9, underscore and the forward slash. All other characters are to get removed ...","def strip_string(arg):
+  import re
+  return  [re.sub(r""[^a-zA-Z0-9/]+"", ' ', k) for k in arg.split(""\n"")]",COND_BRANCH,STMT_INTEGRITY,,,,,,
+66,YAK_017150,Yaksh,Python,"Define a function called <code>prompt</code>
+<br/>
+The function should take a single string argument
+<br/>
+The function should return a string with 'Hello'
+<br/><b>Do not use input</b>
+<br/><b>D...","def prompt(name) :
+  return 'Hello' + name",STMT_INTEGRITY,STMT_INTEGRITY,,,,,,
+67,YAK_057172,Yaksh,Python,Write a function <code>except_last_two</code> which takes a <code>list of integers 'L'</code>as an argument and returns <code>everything except the last two elements of the list L.</code>.,"def except_last_two(L):
+    return(-1,-2)",STMT_INTEGRITY,ERROR,,,,,,
+68,SPOC_005833,SPOC,C++,"create integers c, v0, v1, a, l
+read c read v0 read v1 read a read l
+create integers r, prev, sol with r = 0, prev = -1, sol = 0
+while r is less than c
+if prev is -1
+set r to v0
+set prev to v0
+increme...","int main() {
+    int c, v0, v1, a, l;
+    cin >> c >> v0 >> v1 >> a >> l;
+    int r = 0, prev = -1, sol = 0;
+    while (r < c) {
+        if (prev == -1) {
+            r = v0;
+            prev = v0;
+            sol++;
+        } else {
+            int speed = min(v1, prev + a);
+            r += speed - l;
+            sol++;
+            prev = speed;
+        }
+    }
+    cout << sol << '\n';
+}",STMT_INTEGRITY,STMT_INTEGRITY,,,,,,
+69,YAK_086155,Yaksh,Python,<p>Write a function called <code>remove_spaces(s)</code> that accepts a string as an argument. <br /><br />The function should remove all the UNWANTED SPACES! So the spaces at the start and end are co...,"def remove_spaces(s):
+  newstr=""""
+  words=s.split()
+  for a in words:
+    newstr=newstr+a+""""
+  newstr=newstr.strip()
+  return(newstr)",STMT_INTEGRITY,STMT_INTEGRITY,,,,,,
+70,YAK_054188,Yaksh,Python,"Write a function called <code>word_freq(text)</code> which takes one string
+argument. This string will not have any punctuation. Perform a count of the
+number of 'n' character words in this string a...","def word_freq(text):
+    s=text.split()
+    l=[]
+    for x in s:
+        y=len(x)
+        l.append(y)
+    m=set(l)
+    z=list(m)
+    z.sort(reverse=True)
+    
+    c=[]
+    for  b in z:
+        if b in l:
+            c",COND_BRANCH,STMT_INTEGRITY,,,,,,
+71,CODEFORCES_043964,Codeforces,C++,N/A,"#include <bits/stdc++.h>
+#include <string>
+using namespace std;
+
+int main() {
+    int n, cells;
+    cin >> n;
+    cells = (n * n) + (n - 1) * (n - 1);
+    cout << cells;
+}",STMT_INTEGRITY,STMT_INTEGRITY,,,,,,
+72,CODEFORCES_022257,Codeforces,C++,N/A,"#include <bits/stdc++.h>
+#include <string>
+using namespace std;
+
+const int maxx = 2e2 + 20;
+int arr[maxx];
+int main() {
+    long long t, l, r;
+    cin >> t;
+    for (int i = 0; i < t; i++) {
+        cin >> l >> r;
+        cout << l << "" "" << l * 2 << endl;
+    }
+    return 0;
+}",STMT_INTEGRITY,STMT_INTEGRITY,,,,,,
+73,YAK_094679,Yaksh,Python,<p>Write a function called <code>hasperfect(s)</code> that accepts a non-empty integer list as an argument. <br /><br />The function should return a boolean True if the list has a number that is a per...,"def hasperfect(s):
+   import math
+   for i in range(len(s)):
+        a=math.sqrt(s[i])
+        b=int(a)
+        if b*b==s[i]:
+          return True
+        else:
+          return False",COND_BRANCH,STMT_INTEGRITY,,,,,,
+74,SPOC_011813,SPOC,C++,"create string a
+create integer n
+read a
+set n to size of a
+create integer ans with ans = 0
+for i = 0 to n exclusive
+if a[i] is 'V' and a[i+1] is 'K'
+increment ans
+set a[i] to a[i+1] to '#'
+for i = 0 t...","string a;
+int main() {
+    int n;
+    cin >> a;
+    n = a.size();
+    int ans = 0;
+    for (int i = 0; i < n; i++) {
+        if (a[i] == 'V' && a[i + 1] == 'K') {
+            ans++;
+            a[i] = a[i + 1] = '#';
+        }
+    }
+    for (int i = 0; i < n; i++) {
+        if (a[i] == 'V' && a[i + 1] == 'V' || a[i] == 'K' && a[i + 1] == 'K') {
+            ans++;
+            break;
+        }
+    }
+    cout << ans << endl;
+    return 0;
+}",COND_BRANCH,ERROR,,,,,,
+75,YAK_076015,Yaksh,Python,"Define a function called <code>prompt</code>
+<br/>
+The function should take a single string argument
+<br/>
+The function should return a string with 'Hello'
+<br/><b>Do not use input</b>
+<br/><b>D...","def prompt(name):
+  return 'Hello' + 'name'",STMT_INTEGRITY,STMT_INTEGRITY,,,,,,
+76,CODEFORCES_007794,Codeforces,C++,N/A,"#include <bits/stdc++.h>
+#include <string>
+using namespace std;
+
+int main() {
+    int n, k, i, max = INT_MIN, freq = 0;
+    cin >> n >> k;
+    int a[n], x[101] = {0};
+    for (i = 0; i < n; i++) {
+        cin >> a[i];
+        x[a[i]]++;
+    }
+    for (i = 0; i <= 100; i++) {
+        if (x[i] > max) max = x[i];
+        if (x[i]) freq++;
+    }
+    int p = ceil(float(max) / float(k));
+    cout << p * freq * k - n;
+    return 0;
+}",STMT_INTEGRITY,STMT_INTEGRITY,,,,,,
+77,YAK_000404,Yaksh,Python,"Write a python program to find the sum of the following series :
+<b>(In Python2)</b>
+<br><br>
+sum = 8/(1 * 3) + 8/(5 * 7) + 8/(9 * 11) + ........
+<br><br>
+Write a function to get the sum of above...","def sum_series(n):
+    sum = 0.0
+    for i in generate_odd_pairs(n):
+        sum = sum + (8.0/(i[0] * i[1]))
+    return round(sum, 5)
+
+def generate_odd_pairs(n):
+    return [(4 * i - 3,
+        4 * i - 1) for i in range(1, n + 1)]",COND_BRANCH,STMT_INTEGRITY,,,,,,
+78,YAK_079517,Yaksh,Python,<p>Write a function called <code>remove_underscores(s)</code> that accepts a string as an argument. <br /><br />The function should remove all the UNWANTED underscores! So the underscores at the start...,"def remove_underscores(s):
+  newstr=s.strip('_')
+  l=newstr.split()
+  U='_'
+  finalstr= U.join(l)
+  return finalstr",COND_BRANCH,STMT_INTEGRITY,,,,,,
+79,PYPAL_008414,PyPal,Python,"Given a list of integers, return their Least Common Multiple (LCM).","def main(n):
+	def gcd(a,b):
+		while b != 0:
+			a, b = b, a%b
+		return a
+	def lcm(a, b):
+		return abs(a*b)// gcd(a,b)
+	r = numbers[0]
+	for num in numbers[1:]:
+		result = lcm(r, num)			
+	return r",VAR_INIT,STMT_INTEGRITY,,,,,,
+80,CODEFORCES_005480,Codeforces,C++,N/A,"#include <bits/stdc++.h>
+#include <string>
+using namespace std;
+
+int main() {
+    int n;
+    int k;
+    char a[100];
+    cin >> n >> k;
+    cin >> a;
+    int t = n;
+    for (int i = 1; i <= n; i++) {
+        int flag = 0;
+        for (int j = 0; j < n; j++) {
+            if (j + i == n) break;
+            if (a[j] != a[j + i]) flag = 1;
+        }
+        if (flag == 0 && i < t) t = i;
+    }
+    cout << a;
+    for (int i = 0; i < k - 1; i++) {
+        for (int j = n - t; j < n; j++) cout << a[j];
+    }
+    return 0;
+}",STMT_INTEGRITY,STMT_INTEGRITY,,,,,,
+81,CODEFORCES_027948,Codeforces,C++,N/A,"#include <bits/stdc++.h>
+#include <string>
+using namespace std;
+
+int main() {
+    string s;
+    long long cnt = 0;
+    cin >> s;
+    for (long long i = 0; i < s.length(); i++) {
+        if (s[i] == '4' || s[i] == '7') cnt++;
+    }
+    if (cnt == 4 || cnt == 7)
+        cout << ""YES"" << ""\n"";
+    else
+        cout << ""NO"" << ""\n"";
+    return 0;
+}",STMT_INTEGRITY,STMT_INTEGRITY,,,,,,
+82,YAK_093933,Yaksh,Python,"Write a function called <code>calculate_work(F, s)</code> that accepts two numeric values as the arguments.
+<br />
+The first argument is the force and the second is the displacement of the object.
+<br...","def calculate_work(F,s):
+  return F*s
+F=10
+s=20
+calculate_work(10,20)",STMT_INTEGRITY,STMT_INTEGRITY,,,,,,
+83,YAK_015284,Yaksh,Python,"Define a function called <code>greet</code>
+<br/>The function should take one positional argument,
+<b>name</b>.
+<br/>The function should take one optional argument,
+<b>message.</b>
+<br/>
+If mess...","def greet(name, message='Hello'):
+  return message+""""+name",IO_FORMAT,STMT_INTEGRITY,,,,,,
+84,YAK_072040,Yaksh,Python,"Write a function <code>odd_even_sum(start, stop)</code> that accepts two integer arguments. <br><br>
+The function must return a list containing two values. The first value of the list will be the sum ...","def odd_even_sum(start,stop):
+  l=[]
+  os,es=0,0
+  for i in range(start,stop+1):
+    if(i%2==0):
+      es=es+i
+    else:
+      os=os+i
+    l.append(os)
+    l.append(es)
+    l=tuple(l)
+    return(l)",COND_BRANCH,STMT_INTEGRITY,,,,,,
+85,SPOC_014494,SPOC,C++,"s, v1, v2, t1, t2 =integers
+x1, x2 = integers
+Read s, v1, v2, t1, t2
+set x1 to s * v1 + 2 * t1
+set x2 to s * v2 + 2 * t2
+if x1 is less than x2
+print First and a new line
+else if x1 is greater than x2
+...","int main() {
+    int s, v1, v2, t1, t2;
+    int x1, x2;
+    cin >> s >> v1 >> v2 >> t1 >> t2;
+    x1 = s * v1 + 2 * t1;
+    x2 = s * v2 + 2 * t2;
+    if (x1 < x2)
+        cout << ""First"" << endl;
+    else if (x1 > x2)
+        cout << ""Second"" << endl;
+    else
+        cout << ""Friendship"" << endl;
+}",COND_BRANCH,STMT_INTEGRITY,,,,,,
+86,CODEFORCES_005276,Codeforces,C++,N/A,"#include <bits/stdc++.h>
+#include <string>
+using namespace std;
+
+int main() {
+    long long int n, m, i, j, k = -1, l = -1, k1 = 0, l1 = 0, c = 0;
+    cin >> n >> m;
+    char a[n][m];
+    for (i = 0; i < n; i++) {
+        for (j = 0; j < m; j++) cin >> a[i][j];
+    }
+    for (i = 0; i < n; i++) {
+        for (j = 0; j < m; j++) {
+            if (a[i][j] == 'B') {
+                k = i;
+                l = j;
+                break;
+            }
+        }
+        if (k != -1) break;
+    }
+    for (i = k, j = l; j < m; j++) {
+        if (a[i][j] == 'B')
+            c++;
+        else
+            break;
+    }
+    k1 = k + (c - 1);
+    l1 = l + (c - 1);
+    cout << (k + k1) / 2 + 1 << "" "" << (l + l1) / 2 + 1 << endl;
+}",STMT_INTEGRITY,STMT_INTEGRITY,,,,,,
+87,YAK_072646,Yaksh,Python,"Write a function <code>odd_even_sum(start, stop)</code> that accepts two integer arguments. <br><br>
+The function must return a list containing two values. The first value of the list will be the sum ...","def odd_even_sum(start,stop):
+  y=list(range(int(start),int(stop)+1))
+  b=[]
+  for i in y:
+    i=str(i)
+    b.append(i)
+  odd=0
+  even=0
+  for i in b:
+    i=int(i)
+    if (i%2==0):
+      even+=i
+    else:
+      odd+=i
+  print((odd,even))",STMT_INTEGRITY,STMT_INTEGRITY,,,,,,
+88,DEEPFIX_003656,DeepFix,C,N/A,"#include <stdio.h>
+int main(){
+    int i,n,a1,a2,Tn,Tn1,Tn2;
+    scanf(""%d %d %d"",&a1,&a2,&n)
+    Tn1=a1;
+    Tn2=a2;
+    for(i==3,i=<n,i++) {
+     Tn1=Tn2;
+     Tn2=Tn;
+     Tn=Tn1+Tn2-2; }
+    printf(""%d"",Tn);
+    return 0; }",ERROR,ERROR,,,,,,
+89,CODEFORCES_026498,Codeforces,C++,N/A,"#include <bits/stdc++.h>
+#include <string>
+using namespace std;
+
+signed main() {
+    long long n;
+    cin >> n;
+    long long arr[1001];
+    for (long long i = 0; i < n; i++) { cin >> arr[i]; }
+    long long ans = 1e9 + 7;
+    long long index = -1;
+    for (long long t = 1; t <= 1000; t++) {
+        long long tmp = 0;
+        for (long long i = 0; i < n; i++) { tmp += min(abs(t - arr[i]), min(abs(t + 1 - arr[i]), abs(t - 1 - arr[i]))); }
+        if (tmp < ans) {
+            ans = tmp;
+            index = t;
+        }
+    }
+    cout << index << "" "" << ans;
+    return 0;
+}",ERROR,STMT_INTEGRITY,,,,,,
+90,CODEFORCES_043071,Codeforces,C++,N/A,"#include <bits/stdc++.h>
+#include <string>
+using namespace std;
+
+vector<int> v;
+main() {
+    long long a, n, c, b = 0, x = 0, i;
+    cin >> n >> c;
+    x = c;
+    for (i = 2; i <= n; ++i) {
+        cin >> a;
+        if (c >= a * 2) {
+            v.push_back(i);
+            x += a;
+        } else
+            b += a;
+    }
+    if (x <= b) {
+        cout << 0;
+    } else {
+        cout << v.size() + 1 << ""\n1 "";
+        for (i = 0; i < v.size(); ++i) { cout << v[i] << "" ""; }
+    }
+}",STMT_INTEGRITY,STMT_INTEGRITY,,,,,,
+91,YAK_045903,Yaksh,Python,"
+Write a function called <code>is_armstrong(x)</code> which is given an
+n-digit integer (n>1) and returns <code>True</code> or <code>False</code> if
+it is an Armstrong number. For a two digit number, ...","def is_armstrong(a):
+  s = 0
+  b = a
+  while b>0:
+    c = b%10
+    s += c**3
+    b //= 10
+  if a == s:
+    return True
+  else:
+    return False
+    
+    
+    
+    '''
+    l.append(int(i))
+  for j in l:
+    m.append(j ** 3)
+  for k in m:
+    s += int[k]
+  if s == a:
+    return True
+  else:
+    return False
+    '''",COMPUTATION,STMT_INTEGRITY,,,,,,
+92,YAK_093013,Yaksh,Python,"<p>Write a function ""find_non_alpha"" which will take a string and find all the non alphabetic characters and return the non alphabetic characters as a <strong>SET</strong>. All whitespace should be ig...","def find_non_alpha(s):
+  temp_set=set()
+  for i in s:
+    if(i.isalnum() or i=='\t' ):
+      temp_set.add(i)
+  return temp_set",COND_BRANCH,STMT_INTEGRITY,,,,,,
+93,YAK_044332,Yaksh,Python,"Write a function <code>odd_even_sum(start, stop)</code> that accepts two integer arguments. <br><br>
+The function must return a list containing two values. The first value of the list will be the sum...","def odd_even_sum(start,stop):
+	odd=0
+	even=0
+	for i in range(start, stop+1):
+		if 1%2!=0:
+			odd+=1
+		else:
+			even+=i
+	return(odd, even)
+print(odd_even_sum(2,7))",COND_BRANCH,STMT_INTEGRITY,,,,,,
+94,YAK_086989,Yaksh,Python,"Write a function called <code>counta(s)</code> that accepts a string as an argument.
+<br><br>
+The function should count the number of occurrence of letter 'a' and return the count.
+<br />
+Note, the co...","def counta(s):
+  count=0
+  l=len(s)
+  for s in range(l):
+    if s=='a' or s=='A':
+      count+=s
+  return count",COND_BRANCH,STMT_INTEGRITY,,,,,,
+95,SPOC_012971,SPOC,C++,"n, k, l, c, d, p, nl, np = int
+read n then k then l then c then d then p then nl then np
+print (min of min of k * l / nl and c * d and p / np) / n","int main() {
+    int n, k, l, c, d, p, nl, np;
+    cin >> n >> k >> l >> c >> d >> p >> nl >> np;
+    cout << min(min(k * l / nl, c * d), p / np) / n << endl;
+    return 0;
+}",VAR_INIT,STMT_INTEGRITY,,,,,,
+96,SPOC_007101,SPOC,C++,"let n be a integer
+let ans be a long integer with ans = 0
+read n
+a = array of strings of length n
+for i = 0 to n exclusive , read a[i]
+for i = 0 to n exclusive
+let c be a long integer with c = 0
+for j...","int main() {
+    int n;
+    long long ans = 0;
+    cin >> n;
+    string a[n];
+    for (int i = 0; i < n; i++) { cin >> a[i]; }
+    for (int i = 0; i < n; i++) {
+        long long c = 0;
+        for (int j = 0; j < n; j++) {
+            if (a[i][j] == 'C') { c++; }
+        }
+        if (c == 2) {
+            ans++;
+        } else if (c > 2) {
+            ans += (c * (c - 1) / 2);
+        }
+    }
+    for (int i = 0; i < n; i++) {
+        long long c = 0;
+        for (int j = 0; j < n; j++) {
+            if (a[j][i] == 'C') { c++; }
+        }
+        if (c == 2) {
+            ans++;
+        } else if (c > 2) {
+            ans += (c * (c - 1) / 2);
+        }
+    }
+    cout << ans << '\n';
+    return 0;
+}",ERROR,STMT_INTEGRITY,,,,,,
+97,YAK_092238,Yaksh,Python,<p>Write a function called <code>multiple357(num)</code> that accepts an integer as an argument <br /><br />The function should return the number of multiples of 3 or 5 or 7 between 1 and the argument...,"def multiple357(num):
+     return (int(num/3) + int(num/5) - int(num/15))",COND_BRANCH,STMT_INTEGRITY,,,,,,
+98,CODEFORCES_035097,Codeforces,C++,N/A,"#include <bits/stdc++.h>
+#include <string>
+using namespace std;
+
+int type[100001];
+int main() {
+    string s;
+    getline(cin, s);
+    vector<string> v;
+    string temp = """";
+    for (int i = 0; i < (int)s.size(); i++) {
+        if (s[i] == ' ')
+            v.push_back(temp), temp = """";
+        else
+            temp += s[i];
+    }
+    v.push_back(temp);
+    bool mas = 0, fem = 0, imp = 0;
+    int nounpos, nouncnt = 0;
+    for (int i = 0; i < v.size(); i++) {
+        bool b = 0;
+        if (v[i].size() >= 4) {
+            string h = v[i].substr((int)v[i].size() - 4, 4);
+            if (h == ""lios"") {
+                mas = 1;
+                b = 1;
+                type[i] = 1;
+            }
+        }
+        if (v[i].size() >= 5) {
+            string h = v[i].substr((int)v[i].size() - 5, 5);...",STMT_INTEGRITY,STMT_INTEGRITY,,,,,,
+99,CODEFORCES_027486,Codeforces,C++,N/A,"#include <bits/stdc++.h>
+#include <string>
+using namespace std;
+
+long long int even[2000000] = {0};
+long long int odd[2000000] = {0};
+int main() {
+    long long int n;
+    cin >> n;
+    long long int a[n];
+    for (long long int i = 0; i < n; i++) cin >> a[i];
+    long long int pre_sum[n];
+    pre_sum[0] = a[0];
+    for (long long int i = 1; i < n; i++) pre_sum[i] = pre_sum[i - 1] ^ a[i];
+    long long int ans = 0;
+    even[pre_sum[0]]++;
+    odd[0]++;
+    for (long long int i = 1; i < n; i++) {
+        if (i % 2 == 0) {
+            ans += even[pre_sum[i]];
+            even[pre_sum[i]]++;
+        } else {
+            ans += odd[pre_sum[i]];
+            odd[pre_sum[i]]++;
+        }
+    }
+    cout << ans;
+    return 0;
+}",STMT_INTEGRITY,STMT_INTEGRITY,,,,,,
+100,CODEFORCES_017681,Codeforces,C++,N/A,"#include <bits/stdc++.h>
+#include <string>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    if (n != 2)
+        cout << 1;
+    else
+        cout << 2;
+    return 0;
+}",STMT_INTEGRITY,STMT_INTEGRITY,,,,,,
+101,YAK_075905,Yaksh,Python,"Define a function called <code>fib</code> taking one argument
+n
+<br/>Where, n>0 is an integer but defaults to 8
+<br/> Return the first n terms of the Fibonacci sequence
+<br/>
+For example:
+<pre>
+...","def fib(n=8):
+  a,b=0,1
+  k =[]
+  for i in range(n):
+    k.append( a)
+    a,b = b,a+b
+  return print(k)",STMT_INTEGRITY,STMT_INTEGRITY,,,,,,
+102,YAK_043857,Yaksh,Python,"Define a function called <code>greet</code>
+<br/>The function should take one positional argument,
+<b>name</b>.
+<br/>The function should take one optional argument,
+<b>message.</b>
+<br/>
+If mess...","def greet(name, message = ""Hello ""):
+  print(message, name)",IO_FORMAT,STMT_INTEGRITY,,,,,,
+103,DEEPFIX_006355,DeepFix,C,N/A,"#include<stdio.h>
+int p=1;
+int product(int N) {
+    int n;
+    if(n<N) {
+    scanf(""%d"",&a);
+    return n*product(n+1); } }
+int main() {
+    int N;
+    scanf(""%d"",&N);
+    printf(""%d"",product(N));
+    return 0; }",COND_BRANCH,STMT_INTEGRITY,,,,,,
+104,DEEPFIX_002158,DeepFix,C,N/A,"#include <stdio.h>
+#include <stdlib.h>
+int main() {
+int n;
+scanf(""%d"",&n);
+if(n%10!=0) {
+for(i=0;i<((n%10)=0);i++
+    rem=n%10;
+    e=10*rem;
+    num=num+e; }
+if(num==n) {
+    printf(""YES""); }
+else {
+    printf(""NO""); }
+	return 0; }",COND_BRANCH,STMT_INTEGRITY,,,,,,
+105,YAK_024754,Yaksh,Python,"Write a function <code>odd_even_sum(start, stop)</code> that accepts two integer arguments. <br><br>
+The function must return a list containing two values. The first value of the list will be the sum...","def odd_even_sum(x,y):
+  sum_odd = 0
+  sum_even = 0
+  for i in range(x,y):
+    if i%2 == 0:
+      sum_even += i
+    if i%2 == 1:
+      sum_odd += i
+  return(sum_odd,sum_even)",COND_BRANCH,STMT_INTEGRITY,,,,,,
+106,PYPAL_012351,PyPal,Python,"Given a positive integer, return its factorial.","def main(a):
+	fact=1
+	for i in range(1,a+1):
+		fact=fact*1
+	return fact",STMT_INTEGRITY,STMT_INTEGRITY,,,,,,
+107,YAK_033065,Yaksh,Python,"Define a function called <code>fib</code> taking one argument
+n
+<br/>Where, n>0 is an integer but defaults to 8
+<br/> Return the first n terms of the Fibonacci sequence
+<br/>
+For example:
+<pre>
+...","def fib(n=8):
+  a = 0
+  b = 1
+  for i in range(n):
+    m = []
+    m.append(a)
+    a , b = b, a+b
+  return m",STMT_INTEGRITY,STMT_INTEGRITY,,,,,,
+108,YAK_050349,Yaksh,Python,"Write a function called <code>count_unique(text)</code> to find the
+number of unique words in a given string. Ignore case and assume no
+punctuation is in the words.  For example:
+<br/>
+<br/>
+<pre...","def count_unique(text):
+  d = {}
+  for word in text.split():
+    if word in d.keys():
+      pass
+    else:
+      d[word] = 1
+  return len(d)",VAR_INIT,STMT_INTEGRITY,,,,,,
+109,YAK_052883,Yaksh,Python,"Write a function <code>odd_even_sum(start, stop)</code> that accepts two integer arguments. <br><br>
+The function must return a list containing two values. The first value of the list will be the sum ...","def odd_even_sum(start,stop):
+  so = 0
+  se = 0
+  for x in range(start,stop+1):
+    if x % 2 == 0:
+      se = se + x
+    else:
+      so = so + x
+  return [so,se]",COND_BRANCH,STMT_INTEGRITY,,,,,,
+110,CODEFORCES_033452,Codeforces,C++,N/A,"#include <bits/stdc++.h>
+#include <string>
+using namespace std;
+
+int main() {
+    int n, i, k;
+    int l[100], r[100];
+    cin >> n;
+    for (i = 1; i <= n; i++) cin >> l[i] >> r[i];
+    cin >> k;
+    for (i = 1; i <= n; i++) {
+        if (k >= l[i] && k <= r[i]) cout << n - i + 1;
+    }
+    return 0;
+}",STMT_INTEGRITY,STMT_INTEGRITY,,,,,,
+111,YAK_014173,Yaksh,Python,"Write a Function <b>num_square</b> to find the square of a number.
+</br>
+For Example
+<pre>
+>>> num_square(2)
+>>> 4
+</pre>
+In the above example parameter given to function 
+<b>num_square</b> is...","def num_square(x):
+  return x**x",STMT_INTEGRITY,STMT_INTEGRITY,,,,,,
+112,CODEFORCES_023650,Codeforces,C++,N/A,"#include <bits/stdc++.h>
+#include <string>
+using namespace std;
+
+int main() {
+    int n, x, div4 = -1, div7, temp, f = INT_MAX, s = 0;
+    cin >> n;
+    x = n / 7;
+    temp = n;
+    for (int i = 0; i <= x; i++) {
+        temp -= i * 7;
+        if (temp % 4 == 0) {
+            div4 = temp / 4;
+            div7 = i;
+            if ((div4 + div7) < (f + s)) {
+                f = div4;
+                s = div7;
+            }
+        }
+        temp = n;
+    }
+    if (div4 == -1) {
+        cout << -1;
+        return 0;
+    }
+    for (int i = 0; i < f; i++) cout << 4;
+    for (int i = 0; i < s; i++) cout << 7;
+}",STMT_INTEGRITY,STMT_INTEGRITY,,,,,,
+113,CODEFORCES_022825,Codeforces,C++,N/A,"#include <bits/stdc++.h>
+#include <string>
+using namespace std;
+
+int main() {
+    char a, b;
+    cin >> a >> b;
+    bool f = false;
+    for (int i = 0; i < 5; i++) {
+        getchar();
+        if (a == getchar()) { f = true; }
+        if (b == getchar()) { f = true; }
+    }
+    if (f) {
+        cout << ""YES"";
+    } else {
+        cout << ""NO"";
+    }
+    return 0;
+}",STMT_INTEGRITY,STMT_INTEGRITY,,,,,,
+114,CODEFORCES_045482,Codeforces,C++,N/A,"#include <bits/stdc++.h>
+#include <string>
+using namespace std;
+
+int main() {
+    long long a, b;
+    cin >> a;
+    while (1) {
+        b = a % 10 + a / 10 % 10 + a / 100 % 10 + a / 1000;
+        if (b % 4 == 0) {
+            cout << a;
+            return 0;
+        }
+        a++;
+    }
+}",STMT_INTEGRITY,STMT_INTEGRITY,,,,,,
+115,SPOC_004516,SPOC,C++,"make integer array arr of size 100005
+let int array arr2 of size 100005
+declare compa1 taking in ints l and r and returning integer
+let integer sum = 0
+for i = 1 to r, set sum to sum | arr[i]
+return s...","int arr[100005];
+int arr2[100005];
+int compa1(int l, int r) {
+    int sum = 0;
+    for (int i = l; i <= r; i++) { sum |= arr[i]; }
+    return sum;
+}
+int compa2(int l, int r) {
+    int sum = 0;
+    for (int i = l; i <= r; i++) { sum |= arr2[i]; }
+    return sum;
+}
+int main() {
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; i++) { cin >> arr[i]; }
+    for (int i = 0; i < n; i++) { cin >> arr2[i]; }
+    int mx1 = 0;
+    int mx2 = 0;
+    for (int l = 0; l < n; l++) {
+        for (int r = 0; r < n; r++) { mx1 = max(mx1, compa1(l, r)); }
+    }
+    for (int l = 0; l < n; l++) {
+        for (int r = 0; r < n; r++) { mx2 = max(mx2, compa2(l, r)); }
+    }
+    cout << mx1 + mx2 << ""\n"";
+    return 0;
+}",COND_BRANCH,ERROR,,,,,,
+116,YAK_088667,Yaksh,Python,"<p>Write a function called <code>subsetproduct(lst, k)</code> that accepts a list of numbers and a value called k. 
+</p>
+<p>
+The list will always have more than one element and all elements will be...","def subsetproduct(lst, k):
+  cnt = 0
+  def rec(ind=0, ans=1):
+    if ind >= len(lst):
+      nonlocal cnt
+      if ans <= k:
+        cnt += 1
+      return
+    rec(ind+1, ans*lst[ind])
+    rec(ind+1, ans)
+  
+  rec()",ERROR,ERROR,,,,,,
+117,SPOC_010836,SPOC,C++,"ong long n,item,temp = long long integers
+read n
+if n modulo 2 is 0 then do the following
+set item to n / 2
+set temp to n * 2 - item
+write temp","int main() {
+    unsigned long long n, item, temp;
+    cin >> n;
+    if (n % 2 == 0) {
+        item = n / 2;
+        temp = n * 2 - item;
+        cout << temp << endl;
+    }
+    return 0;
+}",ERROR,ERROR,,,,,,
+118,PYPAL_003009,PyPal,Python,"Given a year, return True if it is a leap year, else return False. A leap year is divisible by 4, except for years that are divisible by 100. However, years that are divisible by 400 are also leap yea...","def main(yr):
+	if yr%4==0 or yr%400==0 and yr%100!=0:
+		return True
+	else:
+		return False
+	return 0",ERROR,ERROR,,,,,,
+119,YAK_035253,Yaksh,Python,Create a simple <code>Person</code>class with two attribute as before. Add a method called <code>birthday</code> which takes no arguments and which prints 'HBD < name >'and also increase the age by 1....,"class Person:
+  def __init__(self,name='name',age=0.0):
+    self.name = name
+    self.age = age
+  def birthday(self,y=0):
+    self.age += y
+    print('HBD',self.name)",ERROR,ERROR,,,,,,
+120,SPOC_006575,SPOC,C++,"in bool function prime taking n
+if n = 0 or n = 1 then return false
+if (n bit and 1) is 0
+if n = 2
+return true
+else
+return false
+for i = 2 to i^2 <= n
+if n mod i = 0 then return false
+return true
+n, m...","bool prime(int n) {
+    if (n == 0 || n == 1) return false;
+    if (!(n & 1)) {
+        if (n == 2)
+            return true;
+        else
+            return false;
+    }
+    for (int i = 2; i * i <= n; i++)
+        if (n % i == 0) return false;
+    return true;
+}
+int main() {
+    int n, m, i, p;
+    while (cin >> n >> m) {
+        for (i = n + 1;; i++) {
+            if (prime(i)) {
+                p = i;
+                break;
+            }
+        }
+        if (p == m)
+            cout << ""YES"" << endl;
+        else
+            cout << ""NO"" << endl;
+    }
+    return 0;
+}",ERROR,ERROR,,,,,,
+121,YAK_093641,Yaksh,Python,"<p>Create an <code>ArithmeticProgression</code> class which takes two components a and d, where a is the first term of the progression and d is the common difference: <br /><br />The following operati...","class ArithmeticProgression():
+  def __init__(self,a=1,d=1):
+    self.a=a
+    self.d=d
+  def get(self,n):
+    l=[]
+    for i in range(n+1):
+      c=self.a + (n+1)*self.d
+      l.append(c)
+    return l[n]
+  def sum(n):
+    p=0
+    for i in range(n):
+      c=self.a +(n+1)*self.d
+      p+=c
+    return p",ERROR,STMT_INTEGRITY,,,,,,
+122,CODEFORCES_011960,Codeforces,C++,N/A,"#include <bits/stdc++.h>
+#include <string>
+using namespace std;
+
+int main() {
+    long long int x, n;
+    cin >> n;
+    n = n - 10;
+    if (n <= 0 && n >= 10)
+        x = 0;
+    else if ((n >= 1 && n <= 9) || n == 11)
+        x = 4;
+    else if (n == 10)
+        x = 15;
+    cout << x;
+    return 0;
+}",STMT_INTEGRITY,STMT_INTEGRITY,,,,,,
+123,YAK_034106,Yaksh,Python,"Define a function called <code>greet</code>
+<br/>The function should take one positional argument,
+<b>name</b>.
+<br/>The function should take one optional argument,
+<b>message.</b>
+<br/>
+If mess...","def greet(name,message='hello'):
+    return message +''+ name",COND_BRANCH,STMT_INTEGRITY,,,,,,
+124,YAK_103002,Yaksh,Python,"Write a function <code>is_palindrome(arg)</code> which will take one string argument.
+<br>
+Return True if the argument is palindrome & False otherwise.
+ <br>
+The function should be case sensitive.
+<br...","def is_palindrome(s):
+	s = s.lower()
+	return s == s[::-1]",COND_BRANCH,STMT_INTEGRITY,,,,,,
+125,CODEFORCES_036757,Codeforces,C++,N/A,"#include <bits/stdc++.h>
+#include <string>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        string s;
+        cin >> s;
+        if (s.length() == 1) {
+            cout << ""Yes"" << endl;
+            continue;
+        }
+        vector<int> a(26);
+        for (int i = 0; i < s.size(); i++) { a[s[i] - 'a']++; }
+        bool done = false;
+        for (int i = 0; i < a.size(); i++) {
+            if (a[i] > 1) {
+                cout << ""No"" << endl;
+                done = true;
+                break;
+            }
+        }
+        if (done) continue;
+        int j = 0;
+        while (j < 26 && a[j] != 1) { j++; }
+        while (j < 26 && a[j] != 0) j++;
+        for (int k = j; k < a.size(); k++)
+            if (a[k] == 1) {
+                cou...",STMT_INTEGRITY,STMT_INTEGRITY,,,,,,
+126,YAK_052253,Yaksh,Python,"Write a function <code>odd_even_sum(start, stop)</code> that accepts two integer arguments. <br><br>
+The function must return a list containing two values. The first value of the list will be the sum ...","def odd_even_sum(start,stop):
+  sumeven,sumodd=0,0
+  l = []
+  for i in range(start,stop-1):
+    if i%2==0:
+      sumeven+=i
+    else:
+      sumodd+=i
+  l = [sumodd,sumeven]
+  l = tuple(l)
+  return l",STMT_INTEGRITY,STMT_INTEGRITY,,,,,,
+127,CODEFORCES_041726,Codeforces,C++,N/A,"#include <bits/stdc++.h>
+#include <string>
+using namespace std;
+
+int main() {
+    long long int t, ans, n, k;
+    cin >> t;
+    while (t--) {
+        ans = 0;
+        cin >> n >> k;
+        while (n != 0) {
+            if (n % k == 0)
+                n /= k, ans++;
+            else {
+                ans += (n - (n / k) * k);
+                n -= (n - (n / k) * k);
+            }
+        }
+        cout << ans << endl;
+    }
+    return 0;
+}",STMT_INTEGRITY,STMT_INTEGRITY,,,,,,
+128,PYPAL_000850,PyPal,Python,"Given two lists of the same length as input, return a dictionary with keys taken from the first list and values from the second list. If the list sizes are different, consider the length of the shorte...","def main(x,y):
+	return {**x,**y}",ERROR,ERROR,,,,,,
+129,YAK_092470,Yaksh,Python,"<p>The function <tt>string_lengths</tt> takes a single argument <tt>sl</tt>that is a list of strings. It returns a list of the same length that contains the length of each string in <tt>sl</tt>.</p>
+
+...","def string_lengths(sl):
+    list=[]
+    for i in sl:
+      list.append(len(i))",ERROR,ERROR,,,,,,
+130,DEEPFIX_004011,DeepFix,C,N/A,"#include <stdio.h>
+#include <stdlib.h>
+int main() {
+	int i=0;
+	int j=0;
+	int k=0;
+	int n;
+	scanf (""%d"",&n);
+	for (i=0;i<=n/2;i++){
+	    for (j=0;j<=i;j++)
+	    printf("" "");
+	    for (k=0;k<=9-2*i;k++)
+	    printf (""*"");
+	    printf )(""\n""); }
+	return 0; }",ERROR,ERROR,,,,,,
+131,YAK_059795,Yaksh,Python,"Write a decorator called <strong> deco</strong>
+<br>
+
+Decorate a function called <strong>test </strong>
+<br>
+The decorated function should take an argument and add 1 to it.
+<br>
+Hint: Python ve...","def deco(func):
+  def new_func(*arg,**kw):
+    return func(*arg,**kw)
+  return new_func
+@deco
+def test(x):
+  return (x+1)
+  
+a=test(2)",ERROR,ERROR,,,,,,
+132,DEEPFIX_005871,DeepFix,C,N/A,"#include <stdio.h>
+#include <stdlib.h>
+#include<math.h>
+double F(int);
+double G(int);
+int main() {
+	double a,b;
+	int n,i,j;
+	scanf(""%lf %lf %d"",&a,&b,&n);
+	double x[n];
+    x[0]=a;
+    double sum;
+    double del_x=(b-a)/n;
+    for(i=1;i<n-1;i++) {
+       x[i]=x[0]+i*del_x; }
+    x[n-1]=b;
+    for(j=0;j<n;j++) {
+        sum+=fabs(F(j)-G(j))*del_x; }
+    printf(""%.4lf"",sum);
+    return 0; }
+double F(int x) {
+    return -(x*x)+3*x; }
+double G(int y) {
+    return 2*y*y-x*x-5*x; }",ERROR,STMT_INTEGRITY,,,,,,
+133,YAK_031630,Yaksh,Python,"Write a function <code>odd_even_sum(start, stop)</code> that accepts two integer arguments. <br><br>
+The function must return a list containing two values. The first value of the list will be the sum...","def odd_even_sum(start, stop):
+    count = 0
+    for i in range(start, stop, 1):
+        if(i % 2 == 0):
+            count += i
+        else:
+          count +=0
+    return count",COND_BRANCH,STMT_INTEGRITY,,,,,,
+134,CODEFORCES_001021,Codeforces,C++,N/A,"#include <bits/stdc++.h>
+#include <string>
+using namespace std;
+
+int sum1 = 0, sum2 = 0;
+int main() {
+    int n;
+    cin >> n;
+    for (int i = 1; i <= n; i++) {
+        int t;
+        cin >> t;
+        sum1 += t;
+    }
+    while (n--) {
+        int t;
+        cin >> t;
+        sum2 += t;
+    }
+    if (sum2 > sum1)
+        cout << ""No"" << endl;
+    else
+        cout << ""Yes"" << endl;
+    return 0;
+}",STMT_INTEGRITY,STMT_INTEGRITY,,,,,,
+135,DEEPFIX_005866,DeepFix,C,N/A,"#include <stdio.h>
+#include <stdlib.h>
+int h(float x){
+    r= (8*x) - (2*x*x*x);
+    return r; }
+int sum(h(x)){
+    for (i=0;i<=n-1;i++){ } }
+int main() {
+	        int n;
+	        double a,b,s,area;
+	        scanf(""%lf%lf"",&a&b);
+	        scanf(""%d"",&n);
+	        s= (b-a)/n;
+	        area = sum( * s;
+	return 0; }",STMT_INTEGRITY,STMT_INTEGRITY,,,,,,
+136,YAK_067492,Yaksh,Python,"Write a function <code>odd_even_sum(start, stop)</code> that accepts two integer arguments. <br><br>
+The function must return a list containing two values. The first value of the list will be the sum ...","def odd_even_sum(start, stop):
+  odd = 0
+  even = 0
+  for i in range(start, stop+1):
+    if i%2 == 0:
+      even += 1
+    else :
+      odd += 1
+  sum = [odd, even]
+  return sum",COND_BRANCH,STMT_INTEGRITY,,,,,,
+137,YAK_050348,Yaksh,Python,"Define a function called <code>fib</code> taking one argument
+n
+<br/>Where, n>0 is an integer but defaults to 8
+<br/> Return the first n terms of the Fibonacci sequence
+<br/>
+For example:
+<pre>
+...","def fib(n=8):
+  a,b=0,1
+  l=[a]
+  for i in range(n):
+    l.append(b)
+    a,b=b,a+b
+  return l",STMT_INTEGRITY,STMT_INTEGRITY,,,,,,
+138,CODEFORCES_020805,Codeforces,C++,N/A,"#include <bits/stdc++.h>
+#include <string>
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;
+    for (int i = 0; i < t; ++i) {
+        int n, k;
+        cin >> n >> k;
+        for (int j = 0; j < n; ++j) { cout << char('a' + j % k); }
+        cout << endl;
+    }
+    return 0;
+}",STMT_INTEGRITY,STMT_INTEGRITY,,,,,,
+139,YAK_053473,Yaksh,Python,Write a function <code>except_last_two</code> which takes a <code>list of integers 'L'</code>as an argument and returns <code>everything except the last two elements of the list L.</code>.,"def except_last_two(L):
+  return L[-3:0]",ERROR,ERROR,,,,,,
+140,SPOC_007206,SPOC,C++,"win = array of integers of length 105
+a = 2d array of integers with 105 rows and 105 columns respectively
+let n, m be integers
+let maxn, maxnn be integers
+let index, inindex be integers
+while read n a...","int win[105];
+int a[105][105];
+int main() {
+    int n, m;
+    int maxn, maxnn;
+    int index, inindex;
+    while (cin >> n >> m) {
+        maxn = -1;
+        index = 0;
+        memset(win, 0, sizeof(win));
+        for (int i = 0; i < m; i++)
+            for (int j = 0; j < n; j++) cin >> a[i][j];
+        for (int i = 0; i < m; i++) {
+            for (int j = n - 1; j >= 0; j--) {
+                if (a[i][j] >= maxn) {
+                    maxn = a[i][j];
+                    index = j;
+                }
+            }
+            win[index]++;
+            maxn = -1;
+        }
+        maxnn = -1;
+        inindex = 0;
+        for (int i = n - 1; i >= 0; i--) {
+            if (win[i] >= maxnn) {
+                maxnn = win[i];
+                inindex = i;
+            }
+        }
+        cout << ...",ERROR,ERROR,,,,,,
+141,SPOC_004841,SPOC,C++,"let n, i, par, indpar, indimpar, impar, x, npar and nimpar be long longs with n, i, par, indpar, indimpar, impar, x, npar = 0 and nimpar = 0
+create long longs n, i, par, indpar, indimpar, impar, x, np...","int main() {
+int main() {
+    long long n, i, par, indpar, indimpar, impar, x, npar = 0, nimpar = 0;
+    long long n, i, par, indpar, indimpar, impar, x, npar = 0, nimpar = 0;
+    cin >> n;
+    cin >> n;
+    cin >> x;
+    cin >> x;
+    if (x % 2 == 0) {
+    if (x % 2 == 0) {
+        par = x;
+        par = x;
+        npar++;
+        npar++;
+        indpar = 1;
+        indpar = 1;
+    } else {
+    } else {
+        impar = x;
+        impar = x;
+        nimpar++;
+        nimpar++;
+        indimpar = 1;
+        indimpar = 1;
+    }
+    }
+    for (i = 2; i <= n; i++) {
+    for (i = 2; i <= n; i++) {
+        cin >> x;
+        cin >> x;
+        if (x % 2 == 0) {
+        if (x % 2 == 0) {
+            par = x;
+            par = x;
+            npar++;
+            npar++;
+            indpar = i;
+      ...",ERROR,ERROR,,,,,,
+142,PYPAL_000149,PyPal,Python,"Given a positive integer, return its factorial.","def main(a):
+	y=1
+	for i in range(1,a+1):
+		y=y*a
+	return y",ERROR,STMT_INTEGRITY,,,,,,
+143,CODEFORCES_007761,Codeforces,C++,N/A,"#include <bits/stdc++.h>
+#include <string>
+using namespace std;
+
+int main() {
+    int n, k;
+    cin >> n >> k;
+    int a[n];
+    for (int i = 0; i < n; i++) { cin >> a[i]; }
+    sort(a, a + n);
+    int c = 0;
+    int u = 0;
+    for (int i = 0; i < n + 1; i++) {
+        c++;
+        if (a[i] != a[i + 1]) {
+            u = max(u, c);
+            c = 0;
+        }
+    }
+    int ans;
+    if (u % k == 0) {
+        ans = (u / k) * k;
+    } else {
+        ans = ((u / k) + 1) * k;
+    }
+    c = 0;
+    int ansf = 0;
+    for (int i = 0; i < n; i++) {
+        c++;
+        if (a[i] != a[i + 1]) {
+            ansf += ans - c;
+            c = 0;
+        }
+    }
+    cout << ansf;
+    return 0;
+}",COND_BRANCH,STMT_INTEGRITY,,,,,,
+144,DEEPFIX_000871,DeepFix,C,N/A,"#include <stdio.h>
+int main() {
+  int n,k=0,c;
+  scanf(""%d"",&n);
+  int a[n];
+  for(int j=0;j<n;j++)
+  scanf(""%d"",&a[j]);
+  for(int j=0;j<n;j++) {
+      c=0
+      for(int i=0;i<n;i++)
+      if(a[i]==a[j])
+      c=c+1;
+      if(c==a[j])k=k+1; }
+  if(k==n)printf(""Yes"");
+  else printf(""No"");
+    return 0; }",COND_BRANCH,STMT_INTEGRITY,,,,,,
+145,PYPAL_005105,PyPal,Python,"Given two points (x1, y1) and (x2, y2), return the slope and intercept of the line joining these two points (the line may be perfectly horizontal or vertical). Input should be in this format : (x1, y1...","def main(x1, y1, x2, y2):
+	a=((y2-y1)/(x2-x1))
+	if x2-x1!=0:
+		return a
+	else:
+		return None
+	c=y1-a(x1)
+	return c",STMT_INTEGRITY,STMT_INTEGRITY,,,,,,
+146,YAK_034265,Yaksh,Python,"Write a function <code>odd_even_sum(start, stop)</code> that accepts two integer arguments. <br><br>
+The function must return a list containing two values. The first value of the list will be the sum...","def odd_even_sum(a, n):
+    sum_even, sum_odd = (0, 0)
+    for i in range(a, n):
+        if i%2:
+            sum_odd += i
+        else:
+            sum_even += i
+    return (sum_even, sum_odd)",COND_BRANCH,STMT_INTEGRITY,,,,,,
+147,CODEFORCES_017939,Codeforces,C++,N/A,"#include <bits/stdc++.h>
+#include <string>
+using namespace std;
+
+int t, n, x, y, d;
+int main() {
+    cin >> t;
+    while (t--) {
+        cin >> n >> x >> y >> d;
+        if ((y - 1) % d != 0 && (n - y) % d != 0 && abs(y - x) % d != 0) {
+            cout << -1 << endl;
+            continue;
+        }
+        int ans1 = 2147483646, ans2 = 2147483646, ans3 = 2147483646, ans;
+        if (abs(y - x) % d == 0) {
+            ans3 = abs(y - x) / d;
+            cout << ans3 << endl;
+            continue;
+        }
+        if ((y - 1) % d == 0) {
+            ans1 = (x - 1) / d + 1;
+            ans1 += (y - 1) / d;
+        }
+        if ((n - y) % d == 0) {
+            ans2 = (n - x) / d + 1;
+            ans2 += (n - y) / d;
+        }
+        ans = min(ans1, ans2);
+        cout << ans << endl;
+    }
+ ...",STMT_INTEGRITY,STMT_INTEGRITY,,,,,,
+148,CODEFORCES_003398,Codeforces,C++,N/A,"#include <bits/stdc++.h>
+#include <string>
+using namespace std;
+
+int main() {
+    long long n, h, a, b, k;
+    cin >> n >> h >> a >> b >> k;
+    for (int i = 1; i <= k; i++) {
+        int t1, f1, t2, f2;
+        cin >> t1 >> f1 >> t2 >> f2;
+        if (t1 == t2) {
+            cout << abs(f1 - f2) << endl;
+            continue;
+        }
+        if (f1 < a && f2 < a) {
+            cout << abs(t1 - t2) + abs(a - f1) + abs(a - f2) << endl;
+            continue;
+        }
+        if (f1 > b && f2 > b) {
+            cout << abs(t1 - t2) + abs(b - f1) + abs(b - f2) << endl;
+            continue;
+        }
+        cout << abs(t1 - t2) + abs(f1 - f2) << endl;
+    }
+}",STMT_INTEGRITY,STMT_INTEGRITY,,,,,,
+149,YAK_083944,Yaksh,Python,"<p>Write a function called <code>removespaces(s)</code> that accepts a string as an argument. <br /><br />The function should remove the spaces at the start and trailing spaces only, and return the st...","def removespaces(s):
+  l=s.split()        
+  s1=""""        
+  for i in range(len(l)-1):        
+    s1=s1+l[i]+"" ""
+  s1+=l[-1]        
+  return s1",ERROR,ERROR,,,,,,
+150,YAK_012089,Yaksh,Python,"Consider the following factorial function:
+<br>
+<pre>
+def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n - 1)
+</pre>
+It doesn't work too well if it is ...","def nonnegative(func):
+	def retfun(n):
+		if(n<0):
+			return None
+		elif(n==0):
+			return 1
+		else:
+			return n * func(n)
+	return retfun",ERROR,ERROR,,,,,,
+151,YAK_084503,Yaksh,Python,"Write a function called <code>two_words(a, b)</code> that accepts two words as an argument.
+<br><br>
+The function should check whether the two words are made of same letters or not.
+<br />
+The functio...","def two_words(a, b):
+  dt = {}
+  for i in a:
+    if i not in dt:
+      dt[i]=1
+    else:
+      dt[i]+=1
+  for j in b:
+    if j not in dt:
+      return False
+  return True",ERROR,STMT_INTEGRITY,,,,,,
+152,SPOC_014541,SPOC,C++,"in void function File
+call freopen whith args ""colors.is"", ""r"", stdin
+declare void function fast
+pi = 2 * acos of 0 =const double
+nn = 2e5 + 5= const int
+oo = const int = 0x3f3f3f3f
+in bool function v...","void File() {
+    freopen(""colors.in"", ""r"", stdin);
+}
+void fast() {}
+const double pi = 2 * acos(0.0);
+const int nn = 2e5 + 5;
+const int oo = 0x3f3f3f3f;
+bool vowel(char c) {
+    if (c == 'a') return 1;
+    if (c == 'e') return 1;
+    if (c == 'i') return 1;
+    if (c == 'o') return 1;
+    if (c == 'u') return 1;
+    return 0;
+}
+int main() {
+    fast();
+    string s;
+    cin >> s;
+    for (int i = 0; i < ((int)((s).size())) - 1; i++) {
+        if (!vowel(s[i]) && !vowel(s[i + 1]) && s[i] != 'n') return cout << ""NO\n"", 0;
+    }
+    if (s[((int)((s).size())) - 1] != 'n' && !vowel(s[((int)((s).size())) - 1])) return cout << ""NO\n"", 0;
+    cout << ""YES\n"";
+    return 0;
+}",COND_BRANCH,STMT_INTEGRITY,,,,,,
+153,YAK_020118,Yaksh,Python,"Write a function <code>fibodiv(n)</code> that accepts an integer <b>n</b> as argument.
+<br><br>
+The function should return boolean <code>True</code> if the <b>n<sup>th</sup></b> value of the fibonacci...","# Python3 code to find Even  Fibonacci
+# Series using normal Recursion
+  
+# Function which return 
+#nth even fibonnaci number 
+def fibodiv(n) :
+    if (n < 1) :
+        return n
+    if (n == 1)  :
+        return 2
+  
+    # calculation of Fn = 4*(Fn-1) + Fn-2
+    return ((4 * fibodiv(n-1)) + fibodiv(n-2))  
+ 
+ 
+# Driver program 
+n = 6
+print(fibodiv(n))",STMT_INTEGRITY,STMT_INTEGRITY,,,,,,
+154,YAK_022744,Yaksh,Python,"Write a function <code>odd_even_sum(start, stop)</code> that accepts two integer arguments. <br><br>
+The function must return a list containing two values. The first value of the list will be the sum ...","def odd_even_sum(x,y):
+  count,count1=0,0
+  for i in range(x,y+1):
+    if i%2==0:
+      count=count+i
+    else:
+      count1=count1+i
+  list=[]
+  list.append((count,count1))
+  return tuple(list)",COND_BRANCH,STMT_INTEGRITY,,,,,,
+155,DEEPFIX_000185,DeepFix,C,N/A,"#include <stdio.h>
+#include <stdlib.h>
+int main() {
+	int n,m,x,y,i,j,k;
+	scanf(""%d%d%d%d"",&n,&m,&x,&y);
+	int a[n],b[m];
+	if(n<m)
+	int u[n],v[n];
+	else
+	int u[m],v[m];
+	for(i=0;i<n;i++)
+	scanf(""%d"",&a[i]);
+	for(j=0;j<m;j++)
+	scanf(""%d"",&b[j]);
+	for(i=0,j=0;k=0;(i<m)&&(j<n);) {
+	    if((b[j]>=a[i]-x)&&(b[j]<=a[i]+y)) {
+	        i++;j++;
+	        u[k]=i;v[k]=j;k++; }
+	    else if(b[j]<a[i]-x)
+	    j++;
+	    else
+	    i++; }
+	printf(""%d"",k+1);
+	for(i=0;i<k;i++)
+	printf(""%d %d"",u[k],v[k]);
+	return 0; }",STMT_INTEGRITY,STMT_INTEGRITY,,,,,,
+156,YAK_016394,Yaksh,Python,"Define a function called <code>prompt</code>
+<br/>
+The function should take a single string argument
+<br/>
+The function should return a string with 'Hello'
+<br/><b>Do not use input</b>
+<br/><b>Do not ...","def prompt(name):
+    return 'Hello,name'",STMT_INTEGRITY,STMT_INTEGRITY,,,,,,
+157,SPOC_005457,SPOC,C++,"n = int
+read n
+ara[n+1], i = int
+for i = 0 to n exclusive, read ara[i]
+a = 1, b = 2 be int
+c = bool = false
+for i = 0 to n exclusive
+if ara[i] = a or ara[i] = b
+set b to 6-a-b
+set a to ara[i]
+else
+set...","int main() {
+    int n;
+    cin >> n;
+    int ara[n + 1], i;
+    for (i = 0; i < n; i++) cin >> ara[i];
+    int a = 1, b = 2;
+    bool c = false;
+    for (i = 0; i < n; i++) {
+        if (ara[i] == a || ara[i] == b) {
+            b = 6 - a - b;
+            a = ara[i];
+        } else {
+            c = true;
+            break;
+        }
+    }
+    if (c)
+        cout << ""NO"" << endl;
+    else
+        cout << ""YES"" << endl;
+}",COND_BRANCH,STMT_INTEGRITY,,,,,,
+158,YAK_039207,Yaksh,Python,"<p>Write a function called <code>subsetproduct(lst, k)</code> that accepts a list of numbers and a value called k. 
+</p>
+<p>
+The list will always have more than one element and all elements will be...","def subsetproduct(lst, k):
+  lst = sorted(lst)
+  count = 0
+  for i in range(len(lst)):
+    prod = lst[i]
+    for j in range(i+1, len(lst)):
+      if prod*lst[j] <= k:
+        count += 1
+      prod *= lst[j]
+      print(prod)
+  return count",ERROR,ERROR,,,,,,
+159,YAK_040102,Yaksh,Python,"Write a function <code>word_frequency(s,n)</code> to find the most frequently occurring words
+in a string, where <code>s</code> is a string  and <code>n</code> is a positive integer. The function mus...","def word_frequency(s,n):
+  word_string = 'the the the quick quick brown brown brown brown fox jumps jumps over'
+  word_string+='the the the quick quick brown brown brown brown fox jumps jumps over'
+  
+  wlist = word_string.split()
+  freq = []
+  for w in wlist:
+    freq.append(wlist.count(w))
+  
+  print(str(zip(wlist,freq)))",ERROR,ERROR,,,,,,
+160,CODEFORCES_047378,Codeforces,C++,N/A,"#include <bits/stdc++.h>
+#include <string>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    if (n % 4 == 1)
+        cout << 0 << "" ""
+             << ""A"" << endl;
+    if (n % 4 == 2)
+        cout << 1 << "" ""
+             << ""B"" << endl;
+    if (n % 4 == 3)
+        cout << 2 << "" ""
+             << ""A"" << endl;
+    if (n % 4 == 0)
+        cout << 1 << "" ""
+             << ""A"" << endl;
+    return 0;
+}",ERROR,ERROR,,,,,,
+161,SPOC_009939,SPOC,C++,"create long longs a, b and i
+read a and b
+set value of i to 0
+while a <= b
+a = a * 3
+b = b * 2
+increase i by one
+print i and a new line","int main() {
+    long long a, b, i;
+    cin >> a >> b;
+    i = 0;
+    while (a <= b) {
+        a = a * 3;
+        b = b * 2;
+        i++;
+    }
+    cout << i << endl;
+    return 0;
+}",ERROR,ERROR,,,,,,
+162,YAK_054857,Yaksh,Python,"Write a function called <code>my_sum</code>.
+The function is passed a single string with terms
+separated by spaces.</br>
+The string contains both names and integer values
+in arbitrary order.</br>
+...","def my_sum(str):
+  sum=0
+  for x in str:
+    if x.isdigit():
+      y=int(x)
+      sum=sum+y",ERROR,STMT_INTEGRITY,,,,,,
+163,YAK_093075,Yaksh,Python,"<p>write a function <strong>""sort_list""</strong> which will take a list of tuples where each tuple will have two elements first element is a string and second element is the number of occurrences of t...","def fn1(list):
+  return list[1]
+
+def sort_list(list):
+  return sorted(list,key=lambda e:(e[1],e[0]))
+
+list= sort_list([(""b"", 2), (""a"", 2)])",COND_BRANCH,STMT_INTEGRITY,,,,,,
+164,SPOC_004138,SPOC,C++,"create integers r and c
+read r and c
+let arr be character array with size 11 by 11
+for integer i = 0 to r exclusive
+for j = 0 to c exclusive read arr[i][j]
+declare integer variable R = 0
+for integer i...","int main() {
+    int r, c;
+    cin >> r >> c;
+    char arr[11][11];
+    for (int i = 0; i < r; i++) {
+        for (int j = 0; j < c; j++) cin >> arr[i][j];
+    }
+    int R = 0;
+    for (int i = 0; i < r; i++) {
+        int num = 0;
+        for (int j = 0; j < c; j++) {
+            if (arr[i][j] == '.') num++;
+        }
+        if (num == c) {
+            R += num;
+            for (int j = 0; j < c; j++) { arr[i][j] = '@'; }
+        }
+    }
+    for (int i = 0; i < c; i++) {
+        bool x = false;
+        int num = 0;
+        for (int j = 0; j < r; j++) {
+            if (arr[j][i] == 'S') {
+                x = true;
+                break;
+            } else if (arr[j][i] == '.') {
+                num++;
+            }
+        }
+        if (!x) { R += num; }
+    }
+    cout << R << endl;
+    r...",COND_BRANCH,STMT_INTEGRITY,,,,,,
+165,CODEFORCES_033709,Codeforces,C++,N/A,"#include <bits/stdc++.h>
+#include <string>
+using namespace std;
+
+int main() {
+    int n, a[1000], b[1000], k, f = 0;
+    cin >> n;
+    for (int i = 0; i < n; i++) { cin >> a[i] >> b[i]; }
+    cin >> k;
+    for (int i = 0; i < n; i++) {
+        if (k <= b[i]) {
+            cout << n - i << "" "";
+            f = 1;
+        }
+        if (f == 1) break;
+    }
+}",STMT_INTEGRITY,STMT_INTEGRITY,,,,,,
+166,YAK_072334,Yaksh,Python,"Define a function called <code>fib</code> taking one argument
+n
+<br/>Where, n>0 is an integer but defaults to 8
+<br/> Return the first n terms of the Fibonacci sequence
+<br/>
+For example:
+<pre>
+...","def fib(n=8):
+  a,b=0,1
+  res=[0] 
+  for i in range(n-1):
+    res.append(b)
+    a,b = b,a+b
+    return res",STMT_INTEGRITY,STMT_INTEGRITY,,,,,,
+167,SPOC_007185,SPOC,C++,"n = string
+read n
+total = int with total = 0
+curr = int with curr = 'a' as int
+for i = 0 to length of n
+distance = int with distance = absolute of (n[i] as int - curr)
+if distance <= 13
+increment tota...","string n;
+int main() {
+    cin >> n;
+    int total = 0;
+    int curr = int('a');
+    for (int i = 0; i < n.length(); ++i) {
+        int distance = abs(int(n[i]) - curr);
+        if (distance <= 13) {
+            total += distance;
+        } else {
+            total += 26 - distance;
+        }
+        curr = int(n[i]);
+    }
+    cout << total << endl;
+    return 0;
+}",VAR_INIT,STMT_INTEGRITY,,,,,,
+168,YAK_068194,Yaksh,Python,"Write a function <code>get_digits_sum(arg)</code> which will take one positive integer argument.
+<br>
+Return the sum of the squares of the digits
+<br><br>
+For Example:<br><code>get_digits_sum(123)...","def get_digits_sum(n):
+  sum=0
+  while(n):
+    sum=sum+pow((n%10),2)
+    n=n/10
+  return sum",COMPUTATION,STMT_INTEGRITY,,,,,,
+169,CODEFORCES_004500,Codeforces,C++,N/A,"#include <bits/stdc++.h>
+#include <string>
+using namespace std;
+
+int n, t, j, i, m;
+string s;
+main() {
+    cin >> t;
+    for (i = 0; i < t; i++) {
+        cin >> n >> s;
+        m = 0;
+        for (j = 0; j < n; j++) {
+            if ((abs((int)(s[n - j - 1]) - (int)(s[j]))) != 2 && s[j] != s[n - j - 1]) m++;
+        }
+        if (m == 0)
+            cout << ""YES\n"";
+        else
+            cout << ""NO\n"";
+    }
+}",ERROR,ERROR,,,,,,
+170,CODEFORCES_027379,Codeforces,C++,N/A,"#include <bits/stdc++.h>
+#include <string>
+using namespace std;
+
+int main() {
+    int q;
+    cin >> q;
+    int l1, l2, r1, r2;
+    for (int x = 0; x < q; x++) {
+        cin >> l1 >> r1 >> l2 >> r2;
+        if (l1 == l2) {
+            cout << l1 << "" "" << l2 + 1 << endl;
+        } else {
+            if (l1 > l2) { cout << l1 << "" "" << l2 << endl; }
+            if (l1 < l2) { cout << l1 << "" "" << l2 << endl; }
+        }
+    }
+    return 0;
+}",ERROR,ERROR,,,,,,
+171,CODEFORCES_020675,Codeforces,C++,N/A,"#include <bits/stdc++.h>
+#include <string>
+using namespace std;
+
+int main() {
+    int T;
+    cin >> T;
+    while (T--) {
+        int n, k;
+        cin >> n >> k;
+        for (int i = 0; i < n; i++) {
+            cout << (char)('a' + i % k);
+        }
+        cout << endl;
+    }
+    return 0;
+}",ERROR,ERROR,,,,,,
+172,CODEFORCES_037631,Codeforces,C++,N/A,"#include <bits/stdc++.h>
+#include <string>
+using namespace std;
+
+int k, l, la;
+int main() {
+    cin >> k >> l;
+    while (l != 1) {
+        if (l % k) {
+            cout << ""NO"";
+            return 0;
+        }
+        l /= k;
+        la++;
+    }
+    cout << ""YES"" << endl << la - 1;
+    return 0;
+}",ERROR,ERROR,,,,,,
+173,SPOC_001491,SPOC,C++,"declare new long long n
+read n from the input
+if 0 < n < 40000001
+create new long longs x = n, y = 0 and k = 0
+while x > 0
+increment k by one
+increment y by one
+decrement x if x * x + y * y is greater...","int main() {
+    long long n;
+    cin >> n;
+    if (0 < n && n < 40000001) {
+        long long x = n, y = 0, k = 0;
+        while (x > 0) {
+            k++;
+            y++;
+            if (x * x + y * y > n * n) { x--; }
+            if (x * x + y * y > n * n) { y--; }
+        }
+        cout << 4 * k << endl;
+    } else if (n == 0) {
+        cout << 1 << endl;
+    }
+    return 0;
+}",ERROR,ERROR,,,,,,
+174,CODEFORCES_041140,Codeforces,C++,N/A,"#include <bits/stdc++.h>
+#include <string>
+using namespace std;
+
+int main() {
+    long long int n, y, k, a, b, c;
+    while (cin >> a >> b >> c) {
+        if (a > b + c)
+            cout << '+' << endl;
+        else if (b > a + c)
+            cout << '-' << endl;
+        else if (a == b && c == 0)
+            cout << '0' << endl;
+        else
+            cout << '?' << endl;
+        {}
+    }
+}",ERROR,STMT_INTEGRITY,,,,,,
+175,YAK_037667,Yaksh,Python,"Write a function called <code>rotatelist(lst, k)</code> that accepts two arguments lst and k where lst is a list and k is an integer representing the number of rotations.
+<br><br>
+The function must ...","def rotatelist(lst, k):
+  l = len(lst)
+  if(k<0):
+    k = l-(abs(k)%l)
+  nlst = [0]*l
+  for i in range(l):
+    nlst[i] = lst[(i+k)%l]
+  return nlst",STMT_INTEGRITY,STMT_INTEGRITY,,,,,,
+176,YAK_087496,Yaksh,Python,<p>Write a function called <code>replace_vowels(s)</code> that accepts a string as an argument. <br /><br />The function should replace all the vowels with an underscore '_'. The function should retur...,"def replace_vowels(s):
+  vowels = 'AEIOUaeiou'
+  for ele in vowels:
+    s_test = s.replace(ele, '_') 
+  return s_test",COND_BRANCH,STMT_INTEGRITY,,,,,,
+177,YAK_077879,Yaksh,Python,"Write a function called <code>isuppercase(s)</code> that accepts a string as an argument.
+<br><br>
+The function should return a boolean True if all the characters of the string are in upper case else ...","def isuppercase(s):
+  if s.upper():
+    return True
+  else:
+    return False",COND_BRANCH,STMT_INTEGRITY,,,,,,
+178,YAK_014363,Yaksh,Python,"Define a function called <code>prompt</code>
+<br/>
+The function should take a single string argument
+<br/>
+The function should return a string with 'Hello'
+<br/><b>Do not use input</b>
+<br/><b>D...","def prompt(a):
+  return ""Hello"",a",STMT_INTEGRITY,STMT_INTEGRITY,,,,,,
+179,CODEFORCES_011413,Codeforces,C++,N/A,"#include <bits/stdc++.h>
+#include <string>
+using namespace std;
+
+int main() {
+    int a, b, d, e;
+    cin >> a;
+    if (a % 3 == 1) { cout << a - 2 << "" "" << 1 << "" "" << 1; }
+    if (a % 3 == 2) { cout << a - 3 << "" "" << 2 << "" "" << 1; }
+    if (a % 3 == 0) { cout << a - 2 << "" "" << 1 << "" "" << 1; }
+}",STMT_INTEGRITY,STMT_INTEGRITY,,,,,,
+180,PYPAL_005514,PyPal,Python,"Given a list of integers and another integer, return the index of this given integer.","def main(l, n):
+    for i in range(len(l)):
+        if l[i] == n:
+            return i  # Return the index directly
+    return -1  # Return -1 if the number is not found",IO_FORMAT,STMT_INTEGRITY,,,,,,
+181,SPOC_011019,SPOC,C++,"xa, ya, xb, yb, x, y
+read xa and ya and xb and yb and x and y
+set xb = xb - xa
+set yb = yb - ya
+set xb = abs of xb
+set yb = abs of yb
+if xb remainder x > 0 or yb remainder y > 0
+print NO
+set xb = xb /...","int xa, ya, xb, yb, x, y;
+int main() {
+    cin >> xa >> ya >> xb >> yb >> x >> y;
+    xb -= xa;
+    yb -= ya;
+    xb = abs(xb);
+    yb = abs(yb);
+    if (xb % x || yb % y) {
+        cout << ""NO\n"";
+        return 0;
+    }
+    xb /= x;
+    yb /= y;
+    if ((xb + yb) & 1) {
+        cout << ""NO\n"";
+    } else {
+        cout << ""YES\n"";
+    }
+}",ERROR,ERROR,,,,,,
+182,YAK_079982,Yaksh,Python,<p>Write a function called <code>remove_underscores(s)</code> that accepts a string as an argument. <br /><br />The function should remove all the UNWANTED underscores! So the underscores at the start...,"def remove_underscores(s):
+  import re
+  res=""""
+  n=re.sub('_+','_',s)
+  n=n.strip()
+  n=n.strip(""_"")
+  for i in range(len(n)):
+    if n[i]==""_"":
+      if not(n[i-1]=="""" or n[i+1]==""""):
+        res+=n[i]
+      else:
+        res+=n[i]
+  return(res)",ERROR,ERROR,,,,,,
+183,YAK_076260,Yaksh,Python,"Define a function called <code>is_even</code>
+<br/>
+The function should take a single integer argument.
+<br/>
+The function should return True if the number is
+even and False otherwise.
+<br/><b>D...","def is_even(a):
+  if a % 2 == 0:
+    return 'True'
+  else:
+    'False'",ERROR,STMT_INTEGRITY,,,,,,
+184,PYPAL_001885,PyPal,Python,"Given an integer, return True if it is even, else return False.","def main():
+	a=10
+	if a%2==0:
+		return True
+	else:
+		return False",VAR_INIT,VAR_INIT,,,,,,
+185,YAK_017000,Yaksh,Python,"Define a function called <code>prompt</code>
+<br/>
+The function should take a single string argument
+<br/>
+The function should return a string with 'Hello'
+<br/><b>Do not use input</b>
+<br/><b>D...","def prompt(x):
+  return x
+print(prompt(""Sam""))",STMT_INTEGRITY,STMT_INTEGRITY,,,,,,
+186,YAK_012395,Yaksh,Python,"write a function ""word_freq"" which will take a string and then perform following operation on string :-
+<li> Remove all the non alphabetic characters after lowercasing the string.
+<li> Count the no ...","def find_non_alpha(s):
+    from string import lowercase
+    from string import whitespace
+    non_alpha = []
+    s1 = s.lower()
+    for c in s1:
+        if c not in lowercase + whitespace:
+            non_alpha.append(c)
+    return set(non_alpha)
+
+
+def sort_list(data_list):
+    from collections import OrderedDict
+    sort1 = sorted(data_list, key=lambda x: x[1], reverse=True)
+    sort2 = [(x[1], x[0]) for x in sort1]
+    sort3 = OrderedDict()
+    for x in sort2:
+        if x[0] in sort3:
+            sort3[x[0]].append(x[1])
+        else:
+            sort3[x[0]] = [x[1]]
+    for x in sort3:
+        sort3[x].sort()
+    sort4 = []
+    for x in sort3:
+        for y in sort3[x]:
+            sort4.append((y, x))
+    return sort4
+
+
+def word_freq(s):
+    s1 = s.lower...",IO_FORMAT,STMT_INTEGRITY,,,,,,
+187,YAK_079474,Yaksh,Python,"Write a function called <code>sub_word1(a, b)</code> that accepts two words as an argument.
+<br><br>
+The function should check whether the second word contains all the letters of the first word or not...","def sub_word1(s1, s2):
+    st=True
+    for ch in s2:
+        if ch not in s1:
+          st=False
+          break
+    if st==True:
+        return True
+    else:
+        return False",COND_BRANCH,STMT_INTEGRITY,,,,,,
+188,YAK_015757,Yaksh,Python,"Define a function called <code>apply(f, data)</code>
+<br/>Where f is a function taking a single value.
+<br/>Where data is a list.
+<br/>
+It should return a list where the function is applied
+to ea...","def apply(d,l):
+  x=[]
+  x.append(d(1))
+  return x",STMT_INTEGRITY,STMT_INTEGRITY,,,,,,
+189,PYPAL_008234,PyPal,Python,"Given a quadratic equation with coefficients a, b and c, return the two solutions (may be real or complex). You should not take the square root of a negative number in your code. Input should be in th...","def main(a, b, c):
+    if a == 0:
+        if b == 0:
+            if c == 0:
+                return []  # Infinite solutions for 0 = 0
+            else:
+                return []  # No solution for c != 0
+        # Linear case: b * x + c = 0
+        root = -c / b
+        return [(root, 0.0), (root, 0.0)]  # Same root for both solutions
+    d = b**2 - 4*a*c  # Discriminant
+    real_part = -b / (2 * a)
+    if d >= 0:
+        sqrt_d = d**0.5  # Real square root
+        root1 = (real_part + sqrt_d / (2 * a), 0.0)
+        root2 = (real_part - sqrt_d / (2 * a), 0.0)
+    else:
+        sqrt_d = (-d)**0.5  # Compute imaginary part
+        imaginary_part = sqrt_d / (2 * a)  # Imaginary part
+        root1 = (real_part, imaginary_part)
+        root2 = (real_part, -imaginary_part)
+    return [root1, roo...",STMT_INTEGRITY,STMT_INTEGRITY,,,,,,
+190,CODEFORCES_009405,Codeforces,C++,N/A,"#include <bits/stdc++.h>
+#include <string>
+using namespace std;
+
+int a[1024][1024], b[1024];
+long long ans;
+int main() {
+    int n;
+    cin >> n;
+    ans = 0;
+    long long p = 0;
+    for (int i = 0; i < n; i++) {
+        cin >> b[i];
+        ans += (b[i] - 1) * p + b[i];
+        p++;
+    }
+    cout << ans << endl;
+    return 0;
+}",ERROR,STMT_INTEGRITY,,,,,,
+191,YAK_016954,Yaksh,Python,"Write a function <code>odd_even_sum(start, stop)</code> that accepts two integer arguments. <br><br>
+The function must return a list containing two values. The first value of the list will be the sum ...","def odd_even_sum(start,stop):
+    count=0
+    count1=0
+    result=[]
+    for i in range(start,stop,1):
+        if i%2==0:
+            count +=i
+        else:
+            count1 +=i
+    print(count1,count)
+    return result",COND_BRANCH,STMT_INTEGRITY,,,,,,
+192,SPOC_000594,SPOC,C++,"declare string a
+create int i
+read a
+loop i from length of a to 0 inclusive decrementing i
+if a[i] = a[i + 1], remove 2 elements at the index i of a
+print a","string a;
+int i;
+int main() {
+    cin >> a;
+    for (i = a.size(); i >= 0; i--) {
+        if (a[i] == a[i + 1]) a.erase(i, 2);
+    }
+    cout << a << endl;
+    ;
+}",COND_BRANCH,STMT_INTEGRITY,,,,,,
+193,YAK_083299,Yaksh,Python,<p>Write a function called <code>hasprime(s)</code> that accepts a non-empty integer list as an argument. <br /><br />The function should return a boolean True if the list has a number that is a prime...,"def hasprime(s):
+  prime=False
+  for i in s:
+    for j in range(2,i):
+      if i%j!=0:
+        prime= True
+  return prime",COND_BRANCH,STMT_INTEGRITY,,,,,,
+194,YAK_097512,Yaksh,Python,<p>Write a function called <code>remove_underscores(s)</code> that accepts a string as an argument. <br /><br />The function should remove all the UNWANTED underscores! So the underscores at the start...,"def remove_underscores(s):
+    s = s.strip('_')
+    s = s.replace('__', '_')
+    s = s.replace('_ ', ' ')
+    s = s.replace(' _', ' ')
+    return s
+  
+s1 = '_Hello_Hi!__'
+result1 = remove_underscores(s1)
+print(result1)
+
+s2 = '_Hello Hi!__'
+result2 = remove_underscores(s2)
+print(result2)",COND_BRANCH,STMT_INTEGRITY,,,,,,
+195,DEEPFIX_000034,DeepFix,C,N/A,"#include <stdio.h>
+#include <string.h>
+void merge(int a[], int start, int n, int end){
+    int i, j, k, temp[n];
+    for(k=0; k<n; k++){
+        for(i=start; i<=start+n/2; i++){
+            for(j=start+n/2+1; j<=end; j++){
+                if(a[i]<=a[j]) {
+                    temp[k]=a[i];
+                    k++; }
+                else if(a[i]>a[j]){temp[k]=a[j];
+                    k++; }
+            else if (i==start+n/2) {temp[k]=a[i];
+                    k++; }
+        else temp[k]=a[j];
+                    k++; } }
+void merge_sort(int a[], int start, int end){
+    if(start==end) return ;
+    else {
+        int n=(end-start);
+        merge_sort(a, start, start+n/2);
+        merge_sort(a, start+n/2+1, end);
+        merge(a, start, n, end); } }
+int main(){
+    return 0; }",STMT_INTEGRITY,STMT_INTEGRITY,,,,,,
+196,YAK_073271,Yaksh,Python,"Define a function called <code>fib</code> taking one argument
+n
+<br/>Where, n>0 is an integer but defaults to 8
+<br/> Return the first n terms of the Fibonacci sequence
+<br/>
+For example:
+<pre>
+...","def fib(n=8):
+  a=0
+  c=[0]
+  b=1
+  for i in range(n+1):
+    c.append(b)
+    a,b =b,a+b
+  return c",STMT_INTEGRITY,STMT_INTEGRITY,,,,,,
+197,SPOC_007168,SPOC,C++,"declare string A = ""abcdefghijklmnopqrstuvwxyz""
+declare string word
+read word
+declare integer position = 0
+declare integer x = 0
+declare integer y = 0
+declare integer sum = 0
+for i = 0 to length of wo...","int main() {
+    string A = ""abcdefghijklmnopqrstuvwxyz"";
+    string word;
+    cin >> word;
+    int position = 0;
+    int x = 0;
+    int y = 0;
+    int sum = 0;
+    for (int i = 0; i < word.length(); i++) {
+        int ch = A.find(word[i]);
+        x = abs(position - ch);
+        y = 26 - x;
+        if (x < y) {
+            sum = sum + x;
+        } else {
+            sum = sum + y;
+        }
+        position = ch;
+    }
+    cout << sum << endl;
+    return 0;
+}",ERROR,ERROR,,,,,,
+198,YAK_041506,Yaksh,Python,"Define a function called <code>fib</code> taking one argument
+n
+<br/>Where, n>0 is an integer but defaults to 8
+<br/> Return the first n terms of the Fibonacci sequence
+<br/>
+For example:
+<pre>
+...","def fib(n=8):
+  a,b=0,1
+  result=[]
+  result.append(a)
+  for i in range(n):
+    result.append(b)
+    a,b=b,a+b
+  return result",ERROR,ERROR,,,,,,
+199,CODEFORCES_046693,Codeforces,C++,N/A,"#include <bits/stdc++.h>
+#include <string>
+using namespace std;
+
+string s;
+int main() {
+    cin >> s;
+    for (int i = 0; i < s.size(); i++) {
+        if ((char)s[i] < 91) s[i] += 32;
+        if ((s[i] != 'a') && (s[i] != 'o') && (s[i] != 'y') && (s[i] != 'e') && (s[i] != 'u') && (s[i] != 'i')) cout << '.' << s[i];
+    }
+}",ERROR,ERROR,,,,,,
+200,YAK_085380,Yaksh,Python,<p>Write a function called <code>remove_spaces(s)</code> that accepts a string as an argument. <br /><br />The function should remove all the UNWANTED SPACES! So the spaces at the start and end are co...,"def remove_spaces(s):
+  b=""""
+  l=s.split()
+  for i in l:
+    b=b+"" ""
+  return b.strip()",ERROR,ERROR,,,,,,

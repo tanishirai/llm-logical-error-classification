@@ -42,11 +42,17 @@ data/final_clean_datasets/
 # Predictions
 outputs/predictions/*.json
 
-# Manual testing results
-outputs/manual_testing/manual_testing_200_samples.csv
-outputs/manual_testing/manual_testing_200_samples_updated.csv
+# Manual testing - Track main file, ignore backups/temp
+outputs/manual_testing/*_backup.csv
+outputs/manual_testing/*_temp.csv
+outputs/manual_testing/*_updated.csv
+outputs/manual_testing/*_old.csv
+
+# Keep the main working CSV (track progress)
+!outputs/manual_testing/manual_testing_200_samples.csv
+
+# Ignore large prompt files
 outputs/manual_testing/prompts_200_samples.txt
-outputs/manual_testing/*.csv
 outputs/manual_testing/*.txt
 
 # Keep structure indicators
