@@ -124,25 +124,21 @@ Based on established taxonomy for logical errors:
 
 python scripts/dataset_statistics.py
 
-text
 
 ### 2. Run Automated Predictions (200 samples)
 
 python scripts/run_predictions_200.py
 
-text
 
 ### 3. Prepare Manual Testing
 
 python scripts/prepare_manual_testing.py
 
-text
 
 ### 4. Analyze Results (after manual testing)
 
 python scripts/analyze_results.py
 
-text
 
 ## 📝 Methodology
 
@@ -152,10 +148,6 @@ text
 4. **Manual Testing**: Web interface testing on 4 additional models
 5. **Analysis**: Inter-model agreement and performance metrics
 
-## 📈 Results
-
-[To be filled after completing manual testing]
-
 ## 🔧 Requirements
 
 Python 3.11+
@@ -163,7 +155,6 @@ requests
 json
 pathlib
 
-text
 
 ## ⚙️ Configuration
 
@@ -174,19 +165,15 @@ Create `config/api_keys.json`:
 "huggingface_token": "your-token-here"
 }
 
-text
 
-## 📄 Citation
-
-[To be added after paper publication]
 
 ## 👥 Authors
 
-[Your Name] - FOSSEE Internship, IIT Bombay
+Tanishi Rai
 
 ## 📧 Contact
 
-[Your Email]
+tanishirai2604@gmail.com
 
 ## 📅 Timeline
 
@@ -195,11 +182,3 @@ text
 - Manual testing: December 30, 2024 - January 2025
 - Analysis & paper writing: January 2025
 
-## 🙏 Acknowledgments
-
-- FOSSEE (Free and Open Source Software for Education)
-- Dataset providers: PyPal, Yaksh, Codeforces, SPOC, DeepFix
-
----
-
-**Status**: 🔄 In Progress - Manual testing phase
